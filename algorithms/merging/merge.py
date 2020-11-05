@@ -278,3 +278,40 @@ def truncate(merged_intensities):
     logger.info("Total number of rejected intensities %s", n_removed)
     logger.debug(out.getvalue())
     return amplitudes, anom_amplitudes
+
+
+def delta_F_mean_over_sig_delta_F_mean_stats(anomalous_amplitudes, n_bins=20):
+    """Calculate the statistic for resolution bins and overall."""
+    vals = flex.double()
+    # First calculate dF/s(dF) per resolution bin
+    anomalous_amplitudes.setup_binner(n_bins=n_bins)
+    for i_bin in anomalous_amplitudes.binner().range_used():
+        sel = anomalous_amplitudes.binner().selection(i_bin)
+        arr = anomalous_amplitudes.select(sel)
+        vals.append(delta_F_mean_over_sig_delta_F_mean(arr))
+    # Finally calculate the overall value
+    vals.append(delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes))
+    return vals
+
+
+def delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes):
+    """Calculate < |F(+) - F(-)|> / <sigma(F(+) - F(-))> i.e. DANO/SIGDANO."""
+    diff = anomalous_amplitudes.anomalous_differences()
+    return flex.mean(flex.abs(diff.data())) / flex.mean(diff.sigmas())
+
+
+def add_dFsdF_to_stats_summary(stats_summary, dFsdF):
+    """Update the merging statistics summary with dF/s(dF) values."""
+    lines = stats_summary.split("\n")
+    count = -1
+    for i, l in enumerate(lines):
+        if count > -1 and count < len(dFsdF):
+            fmt = "% 8.3f" % dFsdF[count]
+            if not l.endswith("*"):
+                fmt = " " + fmt
+            lines[i] += fmt
+            count += 1
+        if l.startswith(" d_max"):
+            lines[i] += " dF/s(dF)"
+            count = 0
+    return "\n".join(lines)

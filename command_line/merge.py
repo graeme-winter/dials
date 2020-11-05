@@ -14,6 +14,8 @@ from iotbx import phil
 
 from dials.algorithms.merging.merge import (
     MTZDataClass,
+    add_dFsdF_to_stats_summary,
+    delta_F_mean_over_sig_delta_F_mean_stats,
     make_merged_mtz_file,
     merge,
     show_wilson_scaling_analysis,
@@ -183,12 +185,18 @@ def merge_data_to_mtz(params, experiments, reflections):
         else:
             merged_intensities = merged_array
 
+        anomalous_amplitudes = None
         if params.truncate:
             amplitudes, anomalous_amplitudes = truncate(merged_intensities)
             mtz_dataset.amplitudes = amplitudes
             mtz_dataset.anomalous_amplitudes = anomalous_amplitudes
         show_wilson_scaling_analysis(merged_intensities)
         if stats_summary:
+            if anomalous_amplitudes:
+                dFsdF = delta_F_mean_over_sig_delta_F_mean_stats(
+                    anomalous_amplitudes, n_bins=params.merging.n_bins
+                )
+                stats_summary = add_dFsdF_to_stats_summary(stats_summary, dFsdF)
             logger.info(stats_summary)
 
     return make_merged_mtz_file(mtz_datasets)
