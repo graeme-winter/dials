@@ -297,6 +297,8 @@ def delta_F_mean_over_sig_delta_F_mean_stats(anomalous_amplitudes, n_bins=20):
 def delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes):
     """Calculate < |F(+) - F(-)|> / <sigma(F(+) - F(-))> i.e. DANO/SIGDANO."""
     diff = anomalous_amplitudes.anomalous_differences()
+    if not diff.data() or not diff.sigmas():
+        return 0.0
     return flex.mean(flex.abs(diff.data())) / flex.mean(diff.sigmas())
 
 
