@@ -545,8 +545,8 @@ class Script(object):
             split_experiments = split_experiments2
 
             if params.input.cache_reference_image:
-                self.reference_experiments = split_experiments[0]
-                self.apply_geometry(self.reference_experiments, "reference")
+                reference_experiments = split_experiments[0]
+                self.apply_geometry(reference_experiments, "reference")
 
             # Wrapper function
             def do_work(i, item_list, processor=None, finalize=True):
@@ -554,6 +554,8 @@ class Script(object):
                     processor = Processor(
                         copy.deepcopy(params), composite_tag="%04d" % i, rank=i
                     )
+                if params.input.cache_reference_image:
+                    processor.reference_experiments = reference_experiments
 
                 for item in item_list:
                     tag = item[0]
@@ -593,8 +595,8 @@ class Script(object):
             all_paths = all_paths2
 
             if params.input.cache_reference_image:
-                self.reference_experiments = do_import(all_paths[0], load_models=True)
-                self.apply_geometry(self.reference_experiments, "reference")
+                reference_experiments = do_import(all_paths[0], load_models=True)
+                self.apply_geometry(reference_experiments, "reference")
 
             # Wrapper function
             def do_work(i, item_list, processor=None, finalize=True):
@@ -602,6 +604,9 @@ class Script(object):
                     processor = Processor(
                         copy.deepcopy(params), composite_tag="%04d" % i, rank=i
                     )
+                if params.input.cache_reference_image:
+                    processor.reference_experiments = reference_experiments
+
                 for item in item_list:
                     tag, filename = item
 
