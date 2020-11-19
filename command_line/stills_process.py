@@ -998,7 +998,9 @@ class Processor(object):
         logger.info("*" * 80)
 
         # Find the strong spots
-        observed = flex.reflection_table.from_observations(experiments, self.params)
+        observed = flex.reflection_table.from_observations(
+            experiments, self.params, is_stills=True
+        )
 
         # Reset z coordinates for dials.image_viewer; see Issues #226 for details
         xyzobs = observed["xyzobs.px.value"]
