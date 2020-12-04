@@ -334,6 +334,8 @@ def generate_html_report(mtz_file, filename):
         if array.info().labels == ["F(+)", "SIGF(+)", "F(-)", "SIGF(-)"]:
             anom = array
             break
+    if not anom:
+        return
 
     dFsdF, resolution_bin_edges = delta_F_mean_over_sig_delta_F_mean_stats(anom)
 
@@ -391,5 +393,6 @@ Dano/SigDano = (< |F(+)-F(-)| > / < sigma(F(+)-F(-)) >)
         panel_id="Anomalous signal",
         graphs=data["dF"],
     )
+    logger.info("Writing html report to %s", filename)
     with open(filename, "wb") as f:
         f.write(html.encode("utf-8", "xmlcharrefreplace"))
