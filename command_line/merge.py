@@ -14,10 +14,10 @@ from iotbx import phil
 
 from dials.algorithms.merging.merge import (
     MTZDataClass,
-    add_dFsdF_to_stats_summary,
-    delta_F_mean_over_sig_delta_F_mean_stats,
+    generate_html_report,
     make_merged_mtz_file,
     merge,
+    print_dano_table,
     show_wilson_scaling_analysis,
     truncate,
 )
@@ -88,6 +88,9 @@ output {
     mtz = merged.mtz
         .type = str
         .help = "Filename to use for mtz output."
+    html = dials.merge.html
+        .type = str
+        .help = "Filename for html output report."
     crystal_names = XTAL
         .type = strings
         .help = "Crystal name to be used in MTZ file output (multiple names
@@ -192,12 +195,9 @@ def merge_data_to_mtz(params, experiments, reflections):
             mtz_dataset.anomalous_amplitudes = anomalous_amplitudes
         show_wilson_scaling_analysis(merged_intensities)
         if stats_summary:
-            if anomalous_amplitudes:
-                dFsdF = delta_F_mean_over_sig_delta_F_mean_stats(
-                    anomalous_amplitudes, n_bins=params.merging.n_bins
-                )
-                stats_summary = add_dFsdF_to_stats_summary(stats_summary, dFsdF)
             logger.info(stats_summary)
+        if anomalous_amplitudes:
+            print_dano_table(anomalous_amplitudes)
 
     return make_merged_mtz_file(mtz_datasets)
 
@@ -259,6 +259,9 @@ Only scaled data can be processed with dials.merge"""
         mtz_file = merge_data_to_mtz(params, experiments, reflections)
     except ValueError as e:
         raise Sorry(e)
+
+    if params.output.html:
+        generate_html_report(mtz_file, params.output.html)
 
     logger.info("\nWriting reflections to %s", (params.output.mtz))
     out = StringIO()

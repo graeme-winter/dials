@@ -3,8 +3,10 @@ from __future__ import absolute_import, division, print_function
 
 import logging
 
+from jinja2 import ChoiceLoader, Environment, PackageLoader
 from six.moves import cStringIO as StringIO
 
+from cctbx import uctbx
 from mmtbx.scaling import data_statistics
 
 from dials.algorithms.scaling.Ih_table import (
@@ -21,6 +23,8 @@ from dials.algorithms.symmetry.absences.run_absences_checks import (
 )
 from dials.array_family import flex
 from dials.report.analysis import make_merging_statistics_summary, table_1_summary
+from dials.report.plots import d_star_sq_to_d_ticks
+from dials.util import tabulate
 from dials.util.export_mtz import MADMergedMTZWriter, MergedMTZWriter
 from dials.util.filter_reflections import filter_reflection_table
 
@@ -285,13 +289,14 @@ def delta_F_mean_over_sig_delta_F_mean_stats(anomalous_amplitudes, n_bins=20):
     vals = flex.double()
     # First calculate dF/s(dF) per resolution bin
     anomalous_amplitudes.setup_binner(n_bins=n_bins)
+    resolution_bin_edges = flex.double()
     for i_bin in anomalous_amplitudes.binner().range_used():
         sel = anomalous_amplitudes.binner().selection(i_bin)
         arr = anomalous_amplitudes.select(sel)
         vals.append(delta_F_mean_over_sig_delta_F_mean(arr))
-    # Finally calculate the overall value
-    vals.append(delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes))
-    return vals
+        resolution_bin_edges.append(anomalous_amplitudes.binner().bin_d_min(i_bin))
+    resolution_bin_edges.append(anomalous_amplitudes.binner().d_min())
+    return vals, resolution_bin_edges
 
 
 def delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes):
@@ -302,18 +307,89 @@ def delta_F_mean_over_sig_delta_F_mean(anomalous_amplitudes):
     return flex.mean(flex.abs(diff.data())) / flex.mean(diff.sigmas())
 
 
-def add_dFsdF_to_stats_summary(stats_summary, dFsdF):
-    """Update the merging statistics summary with dF/s(dF) values."""
-    lines = stats_summary.split("\n")
-    count = -1
-    for i, l in enumerate(lines):
-        if count > -1 and count < len(dFsdF):
-            fmt = "% 8.3f" % dFsdF[count]
-            if not l.endswith("*"):
-                fmt = " " + fmt
-            lines[i] += fmt
-            count += 1
-        if l.startswith(" d_max"):
-            lines[i] += " dF/s(dF)"
-            count = 0
-    return "\n".join(lines)
+def print_dano_table(anomalous_amplitudes):
+
+    dFsdF, resolution_bin_edges = delta_F_mean_over_sig_delta_F_mean_stats(
+        anomalous_amplitudes
+    )
+
+    logger.info("Size of anomalous differences")
+    header = ["d_max", "d_min", "dano/sigdano"]
+    rows = []
+    for i, dF in enumerate(dFsdF):
+        rows.append(
+            [
+                f"{resolution_bin_edges[i]:6.2f}",
+                f"{resolution_bin_edges[i+1]:6.2f}",
+                f"{dF:6.3f}",
+            ]
+        )
+    logger.info(tabulate(rows, header))
+
+
+def generate_html_report(mtz_file, filename):
+    """Make a html report to plot some data."""
+    anom = None
+    for array in mtz_file.as_miller_arrays():
+        if array.info().labels == ["F(+)", "SIGF(+)", "F(-)", "SIGF(-)"]:
+            anom = array
+            break
+
+    dFsdF, resolution_bin_edges = delta_F_mean_over_sig_delta_F_mean_stats(anom)
+
+    d_star_sq_bins = [
+        0.5
+        * (
+            uctbx.d_as_d_star_sq(resolution_bin_edges[i])
+            + uctbx.d_as_d_star_sq(resolution_bin_edges[i + 1])
+        )
+        for i in range(0, len(resolution_bin_edges[:-1]))
+    ]
+    d_star_sq_tickvals, d_star_sq_ticktext = d_star_sq_to_d_ticks(
+        d_star_sq_bins, nticks=5
+    )
+
+    data = {
+        "dF": {
+            "dFsdF": {
+                "data": [
+                    {
+                        "x": d_star_sq_bins,
+                        "y": list(dFsdF),
+                        "type": "scatter",
+                        "name": "Dano/SigDano vs resolution",
+                    }
+                ],
+                "layout": {
+                    "title": "Dano/SigDano vs resolution",
+                    "xaxis": {
+                        "title": "Resolution (Å)",
+                        "tickvals": d_star_sq_tickvals,
+                        "ticktext": d_star_sq_ticktext,
+                    },
+                    "yaxis": {"title": "Dano/SigDano", "rangemode": "tozero"},
+                },
+                "help": """\
+This plot shows the size of the anomalous differences of F relative to the uncertainties.
+Dano/SigDano = (< |F(+)-F(-)| > / < sigma(F(+)-F(-)) >)
+""",
+            },
+        },
+    }
+
+    loader = ChoiceLoader(
+        [
+            PackageLoader("dials", "templates"),
+            PackageLoader("dials", "static", encoding="utf-8"),
+        ]
+    )
+    env = Environment(loader=loader)
+    template = env.get_template("simple_report.html")
+    html = template.render(
+        page_title="DIALS merge report",
+        panel_title="Anomalous signal",
+        panel_id="Anomalous signal",
+        graphs=data["dF"],
+    )
+    with open(filename, "wb") as f:
+        f.write(html.encode("utf-8", "xmlcharrefreplace"))
