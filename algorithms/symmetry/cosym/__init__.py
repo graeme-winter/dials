@@ -380,14 +380,18 @@ class CosymAnalysis(symmetry_base, Subject):
         )
 
         for i_cluster in range(n_clusters):
-            isel = (self.cluster_labels == i_cluster).iselection()
-            dataset_ids = isel % len(self.input_intensities)
-            sel = (dataset_ids == dataset_id).iselection()
-            for s in sel:
-                sym_op_id = isel[s] // len(self.input_intensities)
-                for partition in cosets.partitions:
-                    if sym_ops[sym_op_id] in partition:
-                        if i_cluster not in reindexing_ops:
+            # Select all points within this cluster
+            cluster_isel = (self.cluster_labels == i_cluster).iselection()
+            # dataset_ids of each points within this cluster
+            dataset_ids = cluster_isel % len(self.input_intensities)
+            # Index into cluster_isel for points corresponding to the requested dataset_id
+            dataset_isel = (dataset_ids == dataset_id).iselection()
+            for i in dataset_isel:
+                if i_cluster not in reindexing_ops:
+                    # sym_op_id for this copy of the dataset
+                    sym_op = sym_ops[cluster_isel[i] // len(self.input_intensities)]
+                    for partition in cosets.partitions:
+                        if sym_op in partition:
                             cb_op = sgtbx.change_of_basis_op(
                                 partition[0]
                             ).new_denominators(self.cb_op_inp_min)
@@ -396,6 +400,7 @@ class CosymAnalysis(symmetry_base, Subject):
                                 * cb_op
                                 * self.cb_op_inp_min
                             ).as_xyz()
+                            break
 
         return reindexing_ops
 
