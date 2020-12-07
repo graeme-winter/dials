@@ -111,20 +111,14 @@ def test_cosym(
             .build_derived_patterson_group()
         )
 
-    space_groups = {}
     reindexing_ops = {}
     for dataset_id in cosym.reindexing_ops.keys():
         if 0 in cosym.reindexing_ops[dataset_id]:
             cb_op = cosym.reindexing_ops[dataset_id][0]
             reindexing_ops.setdefault(cb_op, set())
             reindexing_ops[cb_op].add(dataset_id)
-        if dataset_id in cosym.space_groups:
-            space_groups.setdefault(cosym.space_groups[dataset_id], set())
-            space_groups[cosym.space_groups[dataset_id]].add(dataset_id)
 
     assert len(reindexing_ops) == len(expected_reindexing_ops)
-    assert len(space_groups) == 1
-    space_group_info = list(space_groups)[0].info()
 
     if use_known_space_group:
         expected_sg = sgtbx.space_group_info(space_group).group()
@@ -134,6 +128,7 @@ def test_cosym(
         )
     assert cosym.best_subgroup["best_subsym"].space_group() == expected_sg
 
+    space_group_info = cosym.best_subgroup["subsym"].space_group_info()
     for cb_op, ridx_set in reindexing_ops.items():
         for expected_set in expected_reindexing_ops.values():
             assert (len(ridx_set.symmetric_difference(expected_set)) == 0) or (

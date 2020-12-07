@@ -175,10 +175,12 @@ class CosymAnalysis(symmetry_base, Subject):
                 sg_best = sg_primitive.change_basis(cb_op_best_primitive.inverse())
                 # best_subgroup above is the bravais type, so create thin copy here with the
                 # user-input space group instead
+                best_subsym = best_subsym.customized_copy(
+                    space_group_info=sg_best.info()
+                )
                 best_subgroup = {
-                    "best_subsym": best_subsym.customized_copy(
-                        space_group_info=sg_best.info()
-                    ),
+                    "subsym": best_subsym.change_basis(cb_op_inp_best.inverse()),
+                    "best_subsym": best_subsym,
                     "cb_op_inp_best": cb_op_inp_best,
                 }
 
@@ -370,28 +372,6 @@ class CosymAnalysis(symmetry_base, Subject):
         )
         self.params.cluster.n_clusters = len(cosets.partitions)
 
-    def _space_group_for_dataset(self, dataset_id, sym_ops):
-        if self.input_space_group is not None:
-            sg = copy.deepcopy(self.input_space_group)
-        else:
-            sg = sgtbx.space_group()
-        ref_sym_op_id = None
-        ref_cluster_id = None
-        for sym_op_id in range(len(sym_ops)):
-            i_cluster = self.cluster_labels[
-                len(self.input_intensities) * sym_op_id + dataset_id
-            ]
-            if i_cluster < 0:
-                continue
-            if ref_sym_op_id is None:
-                ref_sym_op_id = sym_op_id
-                ref_cluster_id = i_cluster
-                continue
-            op = sym_ops[ref_sym_op_id].inverse().multiply(sym_ops[sym_op_id])
-            if i_cluster == ref_cluster_id:
-                sg.expand_smx(op.new_denominators(1, 12))
-        return sg.make_tidy()
-
     def _reindexing_ops_for_dataset(self, dataset_id, sym_ops, cosets):
         reindexing_ops = {}
         # Number of clusters in labels, ignoring noise if present.
@@ -430,22 +410,16 @@ class CosymAnalysis(symmetry_base, Subject):
         sym_ops = [sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.sym_ops]
 
         reindexing_ops = {}
-        space_groups = {}
+
+        cosets = sgtbx.cosets.left_decomposition(
+            self.target._lattice_group,
+            self.best_subgroup["subsym"].space_group().build_derived_acentric_group(),
+        )
 
         for dataset_id in range(len(self.input_intensities)):
-            space_groups[dataset_id] = self._space_group_for_dataset(
-                dataset_id, sym_ops
-            )
-
-            cosets = sgtbx.cosets.left_decomposition(
-                self.target._lattice_group, space_groups[dataset_id]
-            )
-
             reindexing_ops[dataset_id] = self._reindexing_ops_for_dataset(
                 dataset_id, sym_ops, cosets
             )
-
-        self.space_groups = space_groups
         self.reindexing_ops = reindexing_ops
 
     def _do_clustering(self, method):
