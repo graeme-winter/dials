@@ -297,7 +297,7 @@ class CosymAnalysis(symmetry_base, Subject):
     def _optimise(self, termination_params):
         NN = len(self.input_intensities)
         dim = self.target.dim
-        n_sym_ops = len(self.target.get_sym_ops())
+        n_sym_ops = len(self.target.sym_ops)
         coords = flex.random_double(NN * n_sym_ops * dim)
 
         import scitbx.lbfgs
@@ -357,9 +357,7 @@ class CosymAnalysis(symmetry_base, Subject):
             self._symmetry_analysis = None
             return
 
-        sym_ops = [
-            sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.get_sym_ops()
-        ]
+        sym_ops = [sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.sym_ops]
         self._symmetry_analysis = SymmetryAnalysis(
             self.coords, sym_ops, self.subgroups, self.cb_op_inp_min
         )
@@ -429,9 +427,7 @@ class CosymAnalysis(symmetry_base, Subject):
         else:
             self.cluster_labels = self._do_clustering(self.params.cluster.method)
 
-        sym_ops = [
-            sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.get_sym_ops()
-        ]
+        sym_ops = [sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.sym_ops]
 
         reindexing_ops = {}
         space_groups = {}
@@ -521,7 +517,7 @@ class CosymAnalysis(symmetry_base, Subject):
         clustering = seed_clustering(
             self.coords,
             len(self.input_intensities),
-            len(self.target.get_sym_ops()),
+            len(self.target.sym_ops),
             min_silhouette_score=self.params.cluster.seed.min_silhouette_score,
             n_clusters=self.params.cluster.n_clusters,
         )
