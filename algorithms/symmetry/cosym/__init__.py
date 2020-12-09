@@ -374,12 +374,7 @@ class CosymAnalysis(symmetry_base, Subject):
 
     def _reindexing_ops_for_dataset(self, dataset_id, sym_ops, cosets):
         reindexing_ops = {}
-        # Number of clusters in labels, ignoring noise if present.
-        n_clusters = len(set(self.cluster_labels)) - (
-            1 if -1 in self.cluster_labels else 0
-        )
-
-        for i_cluster in range(n_clusters):
+        for i_cluster in range(self.params.cluster.n_clusters):
             # Select all points within this cluster
             cluster_isel = (self.cluster_labels == i_cluster).iselection()
             # dataset_ids of each points within this cluster
@@ -411,6 +406,8 @@ class CosymAnalysis(symmetry_base, Subject):
             self.cluster_labels = flex.double(self.coords.all()[0])
         else:
             self.cluster_labels = self._do_clustering(self.params.cluster.method)
+            # Number of clusters in labels, ignoring noise if present.
+            self.params.cluster.n_clusters = len(set(self.cluster_labels) - {-1})
 
         sym_ops = [sgtbx.rt_mx(s).new_denominators(1, 12) for s in self.target.sym_ops]
 
