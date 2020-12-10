@@ -2,7 +2,7 @@
 #include <scitbx/array_family/shared.h>
 #include <scitbx/array_family/flex_types.h>
 #include <cctype>
-#include <dxtbx/model/panel.h>
+#include <dx2/model/panel.h>
 #include <iostream>
 
 namespace recviewer { namespace ext {
@@ -11,7 +11,7 @@ namespace recviewer { namespace ext {
   typedef scitbx::af::flex<vec3<double> >::type flex_vec3_double;
   typedef scitbx::af::flex<vec2<double> >::type flex_vec2_double;
 
-  static af::shared<vec2<double> > get_target_pixels(dxtbx::model::Panel panel,
+  static af::shared<vec2<double> > get_target_pixels(dx2::model::Panel panel,
                                                      vec3<double> s0,
                                                      int xlim,
                                                      int ylim,

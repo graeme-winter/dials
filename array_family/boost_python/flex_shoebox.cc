@@ -43,11 +43,11 @@ namespace dials { namespace af { namespace boost_python {
   using dials::model::PixelListLabeller;
   using dials::model::Shoebox;
   using dials::model::Valid;
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::CrystalBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::CrystalBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Scan;
   using scitbx::vec3;
 
   /**

@@ -6,14 +6,14 @@
 #include <scitbx/vec3.h>
 #include <scitbx/array_family/flex_types.h>
 #include <scitbx/array_family/shared.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/panel.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/panel.h>
 #include <math.h>
 #include <vector>
 
 namespace kapton {
 
-using dxtbx::model::Detector;
+using dx2::model::Detector;
 using scitbx::vec2;
 using scitbx::vec3;
 
@@ -48,7 +48,7 @@ scitbx::af::shared<double> get_kapton_path_cpp(
           intersection_xy_list.push_back(
             detector[0].get_lab_coord(detector[0].get_ray_intersection(*it)));
         }
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         // Do nothing
       }
     }  // kapton faces

@@ -10,7 +10,7 @@
  */
 #include <boost/python.hpp>
 #include <boost/python/def.hpp>
-#include <dxtbx/model/detector.h>
+#include <dx2/model/detector.h>
 #include <dials/algorithms/spot_prediction/ray_intersection.h>
 
 namespace dials { namespace algorithms { namespace boost_python {

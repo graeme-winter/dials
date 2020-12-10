@@ -12,10 +12,10 @@
 #include <boost/python/def.hpp>
 #include <dials/array_family/reflection_table.h>
 #include <dials/algorithms/spot_prediction/ray_predictor.h>
-#include <dxtbx/model/scan.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/detector.h>
+#include <dx2/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/detector.h>
 
 namespace dials { namespace algorithms { namespace boost_python {
 

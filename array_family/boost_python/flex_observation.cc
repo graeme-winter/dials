@@ -28,9 +28,9 @@ namespace dials { namespace af { namespace boost_python {
   using dials::model::Centroid;
   using dials::model::Intensity;
   using dials::model::Observation;
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Scan;
   using scitbx::vec2;
   using scitbx::vec3;
 
