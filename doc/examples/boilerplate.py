@@ -14,8 +14,8 @@ import sys
 import libtbx.phil
 
 # Information about the experiment geometry and meta-data are recorded in
-# dxtbx.model.Experiment objects, collated in ExperimentList objects.
-from dxtbx.model import ExperimentList
+# dx2.model.Experiment objects, collated in ExperimentList objects.
+from dx2.model import ExperimentList
 
 # All command-line DIALS programs should run with dials.util.show_mail_handle_errors.
 import dials.util

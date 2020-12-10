@@ -5,7 +5,7 @@ import pytest
 import scitbx.matrix
 from cctbx import sgtbx
 from cctbx.sgtbx import bravais_types
-from dxtbx.model import Crystal, Experiment, ExperimentList
+from dx2.model import Crystal, Experiment, ExperimentList
 
 from dials.algorithms.indexing import assign_indices, non_primitive_basis
 from dials.array_family import flex

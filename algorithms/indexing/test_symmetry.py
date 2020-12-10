@@ -5,7 +5,7 @@ import pytest
 import scitbx.matrix
 from cctbx import crystal, sgtbx, uctbx
 from cctbx.sgtbx import bravais_types
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 
 from dials.algorithms.indexing import symmetry
 

@@ -25,7 +25,7 @@ def test_run(dials_regression, tmpdir):
         dials_regression, "indexing_test_data", "phi_scan", "strong.pickle"
     )
 
-    from dxtbx.serialize import load
+    from dx2.serialize import load
 
     imageset_old = load.experiment_list(
         experiments_old, check_format=False
@@ -104,7 +104,7 @@ def test_run(dials_regression, tmpdir):
     )
 
     # Now test refinement gradients are correct
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     old_exps = ExperimentList(
         [

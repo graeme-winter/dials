@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, Mock
 
 import pytest
 
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from libtbx import phil
 
 from dials.algorithms.scaling.scaler import (

@@ -29,7 +29,7 @@ def test_basic(dials_regression, run_in_tmpdir):
     assert not result.returncode and not result.stderr
     assert os.path.exists("models_with_profiles.expt")
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_json_file(
         "models_with_profiles.expt", check_format=False
@@ -62,7 +62,7 @@ def test_extended(dials_regression, run_in_tmpdir):
     assert not result.returncode and not result.stderr
     assert os.path.exists("models_with_profiles.expt")
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_json_file(
         "models_with_profiles.expt", check_format=False

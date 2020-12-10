@@ -2,7 +2,7 @@
 
 from unittest import mock
 
-from dxtbx.model import Crystal, Experiment, ExperimentList, Scan
+from dx2.model import Crystal, Experiment, ExperimentList, Scan
 
 from dials.algorithms.statistics.cc_half_algorithm import CCHalfFromDials
 from dials.array_family import flex

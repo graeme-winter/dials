@@ -11,7 +11,7 @@ import gltbx
 import gltbx.gl as gl
 import libtbx.phil
 import wxtbx.utils
-from dxtbx.model import MultiAxisGoniometer
+from dx2.model import MultiAxisGoniometer
 from scitbx.array_family import flex
 from scitbx.math import minimum_covering_sphere
 
@@ -205,7 +205,7 @@ class render_3d(object):
 
     def predict(self):
         assert self.crystal is not None
-        from dxtbx.model.experiment_list import Experiment
+        from dx2.model.experiment_list import Experiment
 
         imageset = self.imageset
         scan = copy.deepcopy(imageset.get_scan())
@@ -644,7 +644,7 @@ def run(args=None):
             params.detector_distance = detector[0].get_directed_distance()
 
     if gonio is not None and not isinstance(gonio, MultiAxisGoniometer):
-        from dxtbx.model.goniometer import GoniometerFactory
+        from dx2.model.goniometer import GoniometerFactory
 
         gonio = GoniometerFactory.multi_axis(
             axes=flex.vec3_double((gonio.get_rotation_axis(),)),

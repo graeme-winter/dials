@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from dxtbx.model import Goniometer
+from dx2.model import Goniometer
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 from scitbx.array_family import flex

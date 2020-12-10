@@ -5,7 +5,7 @@ import os
 import procrunner
 import pytest
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 
 def test_multiple_sequence_import_fails_when_not_allowed(dials_data, tmpdir):

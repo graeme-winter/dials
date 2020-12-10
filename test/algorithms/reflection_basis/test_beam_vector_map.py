@@ -4,7 +4,7 @@ import random
 
 import pytest
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 from scitbx import matrix
 
 from dials.algorithms.profile_model.gaussian_rs.transform import beam_vector_map

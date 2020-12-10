@@ -19,7 +19,7 @@ def test(dials_data, tmpdir):
     )
     assert not result.returncode and not result.stderr
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_json_file(output_filename)
 
@@ -46,7 +46,7 @@ def test_experiments(dials_data, tmpdir):
     )
     assert not result.returncode and not result.stderr
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_json_file(output_filename)
 

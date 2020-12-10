@@ -7,8 +7,8 @@ import os
 import pytest
 
 from cctbx import sgtbx, uctbx
-from dxtbx.model import Crystal
-from dxtbx.serialize import load
+from dx2.model import Crystal
+from dx2.serialize import load
 
 from dials.algorithms.indexing import model_evaluation
 from dials.algorithms.indexing.assign_indices import AssignIndicesGlobal

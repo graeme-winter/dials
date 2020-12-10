@@ -301,7 +301,7 @@ def test_find_spots_with_user_defined_mask(dials_data, tmpdir):
 
     reflections = flex.reflection_table.from_file(tmpdir / "spotfinder.refl")
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_json_file(
         dials_data("centroid_test_data").join("experiments.json").strpath

@@ -5,11 +5,11 @@ import os
 import pytest
 import six.moves.cPickle as pickle
 
-from dxtbx.format.Format import Reader
-from dxtbx.imageset import ImageSet, ImageSetData
-from dxtbx.model.beam import Beam
-from dxtbx.model.detector import Detector
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.format.Format import Reader
+from dx2.imageset import ImageSet, ImageSetData
+from dx2.model.beam import Beam
+from dx2.model.detector import Detector
+from dx2.model.experiment_list import ExperimentListFactory
 from libtbx import easy_run
 from scitbx import matrix
 

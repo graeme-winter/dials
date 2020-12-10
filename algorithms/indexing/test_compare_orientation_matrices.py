@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function
 import pytest
 
 from cctbx import sgtbx
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from scitbx import matrix
 from scitbx.math import euler_angles as euler
 

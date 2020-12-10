@@ -2,7 +2,7 @@ from unittest import mock
 
 import pytest
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 from dials.algorithms.scaling.observers import (
     ScalingHTMLContextManager,

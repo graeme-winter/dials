@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function
 
 from os.path import basename, splitext
 
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model.experiment_list import ExperimentList
 
 import dials.util
 from dials.algorithms.refinement.refinement_helpers import calculate_frame_numbers

@@ -4,7 +4,7 @@ import copy
 import logging
 import os
 
-import dxtbx.model
+import dx2.model
 import libtbx.phil
 from cctbx.miller import map_to_asu
 from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
@@ -47,7 +47,7 @@ def export_xds_ascii(integrated_data, experiment_list, params, var_model=(1, 0))
 
 
 def _export_experiment(filename, integrated_data, experiment, params, var_model=(1, 0)):
-    # type: (str, flex.reflection_table, dxtbx.model.Experiment, libtbx.phil.scope_extract, Tuple)
+    # type: (str, flex.reflection_table, dx2.model.Experiment, libtbx.phil.scope_extract, Tuple)
     """Export a single experiment to an XDS_ASCII.HKL format file.
 
     Args:

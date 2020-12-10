@@ -39,11 +39,11 @@ def installation_is_valid():
 
 
 known_entry_points = {
-    "dxtbx.profile_model": {
+    "dx2.profile_model": {
         "description": "profile models",
         "required": ["gaussian_rs"],
     },
-    "dxtbx.scaling_model_ext": {"description": "scaling models"},
+    "dx2.scaling_model_ext": {"description": "scaling models"},
     "dials.index.basis_vector_search": {
         "description": "Basis vector search strategies",
         "required": ["fft1d", "fft3d", "real_space_grid_search"],

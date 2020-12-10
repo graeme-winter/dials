@@ -8,7 +8,7 @@ import logging
 import sys
 
 import iotbx.phil
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model.experiment_list import ExperimentList
 
 from dials.algorithms.indexing import DialsIndexError, indexer
 from dials.array_family import flex

@@ -36,7 +36,7 @@ class installer(install_distribution.installer):
         "annlib_adaptbx",
         "clipper",
         # dials
-        "dxtbx",
+        "dx2",
         "dials",
         "xia2",
         "iota",

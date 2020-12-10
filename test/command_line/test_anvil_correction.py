@@ -8,7 +8,7 @@ import copy
 
 import pytest
 
-from dxtbx.model import ExperimentList
+from dx2.model import ExperimentList
 
 from dials.array_family import flex
 from dials.command_line.anvil_correction import (

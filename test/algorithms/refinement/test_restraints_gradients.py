@@ -46,7 +46,7 @@ def test(dials_regression):
     # a hexagonal crystal is a good test case for behaviour of oblique cells
     do_hexagonal = True
     if do_hexagonal:
-        from dxtbx.model.experiment_list import ExperimentListFactory
+        from dx2.model.experiment_list import ExperimentListFactory
 
         experiments = ExperimentListFactory.from_json_file(
             os.path.join(

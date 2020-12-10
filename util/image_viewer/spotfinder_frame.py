@@ -7,8 +7,8 @@ from wx.lib.intctrl import IntCtrl
 
 from cctbx import crystal, uctbx
 from cctbx.miller import index_generator
-from dxtbx.imageset import ImageSet
-from dxtbx.model.experiment_list import ExperimentList, ExperimentListFactory
+from dx2.imageset import ImageSet
+from dx2.model.experiment_list import ExperimentList, ExperimentListFactory
 from libtbx.utils import flat_list
 from scitbx import matrix
 from wxtbx import bitmaps, icons

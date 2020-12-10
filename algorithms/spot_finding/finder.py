@@ -10,9 +10,9 @@ import warnings
 from typing import Iterable, Tuple
 
 import libtbx
-from dxtbx.format.image import ImageBool
-from dxtbx.imageset import ImageSequence, ImageSet
-from dxtbx.model import ExperimentList
+from dx2.format.image import ImageBool
+from dx2.imageset import ImageSequence, ImageSet
+from dx2.model import ExperimentList
 
 from dials.array_family import flex
 from dials.model.data import PixelList, PixelListLabeller

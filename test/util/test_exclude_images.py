@@ -7,7 +7,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from dxtbx.model import Experiment, ExperimentList, Scan
+from dx2.model import Experiment, ExperimentList, Scan
 
 from dials.array_family import flex
 from dials.util.exclude_images import (

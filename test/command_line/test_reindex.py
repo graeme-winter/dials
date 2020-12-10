@@ -8,8 +8,8 @@ import pytest
 import scitbx.matrix
 from cctbx import sgtbx
 from cctbx.sgtbx.lattice_symmetry import metric_subgroups
-from dxtbx.model import Crystal, Experiment, ExperimentList
-from dxtbx.serialize import load
+from dx2.model import Crystal, Experiment, ExperimentList
+from dx2.serialize import load
 
 import dials.command_line.reindex
 from dials.array_family import flex

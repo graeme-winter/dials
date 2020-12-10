@@ -492,7 +492,7 @@ class ProfileModelCalculator(object):
         centroid_definition="s1",
     ):
         """Calculate the profile model."""
-        from dxtbx.model.experiment_list import Experiment
+        from dx2.model.experiment_list import Experiment
 
         # Check input has what we want
         assert reflections is not None
@@ -585,7 +585,7 @@ class ScanVaryingProfileModelCalculator(object):
         centroid_definition="s1",
     ):
         """Calculate the profile model."""
-        from dxtbx.model.experiment_list import Experiment
+        from dx2.model.experiment_list import Experiment
 
         # Check input has what we want
         assert reflections is not None

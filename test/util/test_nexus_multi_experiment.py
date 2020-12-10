@@ -6,7 +6,7 @@ import random
 
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 from scitbx import matrix
 
 import dials.util.nexus

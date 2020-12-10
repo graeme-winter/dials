@@ -7,7 +7,7 @@ import io
 import six
 
 import iotbx.phil
-from dxtbx.model import ExperimentList
+from dx2.model import ExperimentList
 
 import dials.util
 from dials.util.options import OptionParser, reflections_and_experiments_from_files

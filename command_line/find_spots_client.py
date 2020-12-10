@@ -52,7 +52,7 @@ def response_to_xml(d):
         return "<response>\n%s\n</response>" % d["error"]
 
     if "lattices" in d:
-        from dxtbx.model.crystal import CrystalFactory
+        from dx2.model.crystal import CrystalFactory
 
         for lattice in d["lattices"]:
             crystal = CrystalFactory.from_dict(lattice["crystal"])

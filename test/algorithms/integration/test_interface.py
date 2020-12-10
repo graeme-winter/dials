@@ -406,7 +406,7 @@ def test_reflection_manager():
 def test_integrator_3d(dials_data, nproc):
     from math import pi
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     from dials.algorithms.profile_model.gaussian_rs import Model
     from dials.array_family import flex
@@ -446,7 +446,7 @@ def test_integrator_3d(dials_data, nproc):
 def test_summation(dials_data):
     from math import pi
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     from dials.algorithms.profile_model.gaussian_rs import Model
     from dials.array_family import flex

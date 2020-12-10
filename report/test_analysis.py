@@ -5,8 +5,8 @@ from unittest import mock
 import pytest
 
 from cctbx import miller
-from dxtbx.model import Crystal
-from dxtbx.serialize import load
+from dx2.model import Crystal
+from dx2.serialize import load
 
 from dials.algorithms.scaling.scaling_library import (
     merging_stats_from_scaled_array,

@@ -66,7 +66,7 @@ def test1(dials_regression):
     assert os.path.exists(experiments_path)
 
     # load models
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_serialized_format(
         experiments_path, check_format=False
@@ -76,18 +76,18 @@ def test1(dials_regression):
     beam = im_set.get_beam()
 
     # we'll invent a crystal, goniometer and scan for this test
-    from dxtbx.model import Crystal
+    from dx2.model import Crystal
 
     crystal = Crystal(
         (40.0, 0.0, 0.0), (0.0, 40.0, 0.0), (0.0, 0.0, 40.0), space_group_symbol="P1"
     )
 
-    from dxtbx.model import GoniometerFactory
+    from dx2.model import GoniometerFactory
 
     goniometer = GoniometerFactory.known_axis((1.0, 0.0, 0.0))
 
     # Build a mock scan for a 180 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     scan = sf.make_scan(
@@ -102,7 +102,7 @@ def test1(dials_regression):
     assert sequence_range == (0.0, math.pi)
     assert im_width == pytest.approx(0.1 * math.pi / 180.0)
 
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     # Build an experiment list
     experiments = ExperimentList()

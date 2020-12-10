@@ -176,7 +176,7 @@ class OverlapsFilterMultiExpt(object):
     @property
     def expt(self):
         elist = [f.expt for f in self.filters]
-        from dxtbx.model.experiment_list import ExperimentList
+        from dx2.model.experiment_list import ExperimentList
 
         e0 = ExperimentList()
         for e in elist:

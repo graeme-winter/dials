@@ -5,8 +5,8 @@ import procrunner
 import pytest
 
 import libtbx
-from dxtbx.model.experiment_list import ExperimentListFactory
-from dxtbx.serialize import load
+from dx2.model.experiment_list import ExperimentListFactory
+from dx2.serialize import load
 
 from dials.algorithms.shadowing.filter import filter_shadowed_reflections
 from dials.array_family import flex

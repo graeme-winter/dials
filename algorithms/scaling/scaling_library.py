@@ -18,7 +18,7 @@ import pkg_resources
 
 import iotbx.merging_statistics
 from cctbx import crystal, miller, uctbx
-from dxtbx.model import Experiment
+from dx2.model import Experiment
 from iotbx import cif, mtz
 from libtbx import Auto, phil
 
@@ -209,7 +209,7 @@ def create_scaling_model(params, experiments, reflections):
     # Determine non-auto model to use outside the loop over datasets.
     if not use_auto_model:
         model_class = None
-        for entry_point in pkg_resources.iter_entry_points("dxtbx.scaling_model_ext"):
+        for entry_point in pkg_resources.iter_entry_points("dx2.scaling_model_ext"):
             if entry_point.name == params.model:
                 model_class = entry_point.load()
                 break

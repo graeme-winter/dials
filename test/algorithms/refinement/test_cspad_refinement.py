@@ -4,7 +4,7 @@ import os
 
 import procrunner
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 
 def test1(dials_regression, run_in_tmpdir):

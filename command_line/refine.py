@@ -179,7 +179,7 @@ def run_macrocycle(params, reflections, experiments):
     Args:
         params: The working PHIL parameters.
         reflections: A reflection table containing observed centroids
-        experiments: The initial dxtbx experimental geometry models
+        experiments: The initial dx2 experimental geometry models
 
     Returns:
         tuple: The Refiner, the reflection table with updated predictions
@@ -265,7 +265,7 @@ def run_dials_refine(experiments, reflections, params):
 
 
     Args:
-        experiments: The initial dxtbx experimental geometry models
+        experiments: The initial dx2 experimental geometry models
         reflections: A reflection table containing observed centroids
         params: The working PHIL parameters
 

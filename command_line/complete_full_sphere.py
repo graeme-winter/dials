@@ -7,7 +7,7 @@ import math
 import sys
 
 from cctbx import crystal, miller
-from dxtbx.model import ExperimentList
+from dx2.model import ExperimentList
 from libtbx.phil import parse
 from scitbx import matrix
 

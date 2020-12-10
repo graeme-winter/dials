@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function
 
 import random
 
-from dxtbx.model import BeamFactory, Crystal, DetectorFactory, GoniometerFactory
+from dx2.model import BeamFactory, Crystal, DetectorFactory, GoniometerFactory
 from libtbx.phil import command_line, parse
 from scitbx import matrix
 

@@ -9,7 +9,7 @@ from scitbx import matrix
 
 
 def test_beam_parameters():
-    from dxtbx.model import BeamFactory
+    from dx2.model import BeamFactory
 
     from dials.algorithms.refinement.parameterisation.beam_parameters import (
         BeamParameterisation,

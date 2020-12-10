@@ -10,7 +10,7 @@ import math
 import psutil
 
 import libtbx
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model.experiment_list import ExperimentList
 from libtbx.phil import parse
 
 import dials.util
@@ -697,7 +697,7 @@ class Refiner(object):
     ):
         """
         Mandatory arguments:
-          experiments - a dxtbx ExperimentList object
+          experiments - a dx2 ExperimentList object
           pred_param - An object derived from the PredictionParameterisation class
           param_reporter -A ParameterReporter object
           refman - A ReflectionManager object

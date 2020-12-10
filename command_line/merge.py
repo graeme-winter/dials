@@ -9,7 +9,7 @@ import sys
 
 from six.moves import cStringIO as StringIO
 
-from dxtbx.model import ExperimentList
+from dx2.model import ExperimentList
 from iotbx import phil
 
 from dials.algorithms.merging.merge import (

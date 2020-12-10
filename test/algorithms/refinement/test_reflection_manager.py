@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.algorithms.refinement.reflection_manager import ReflectionManager
 from dials.array_family import flex

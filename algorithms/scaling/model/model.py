@@ -1256,22 +1256,22 @@ def calc_n_param_from_bins(value_min, value_max, n_bins):
 
 
 model_phil_scope = phil.parse("")
-_dxtbx_scaling_models = {
-    ep.name: ep for ep in pkg_resources.iter_entry_points("dxtbx.scaling_model_ext")
+_dx2_scaling_models = {
+    ep.name: ep for ep in pkg_resources.iter_entry_points("dx2.scaling_model_ext")
 }
 assert (
-    _dxtbx_scaling_models
-), "No models registered with dxtbx.scaling_model_ext entry point"
+    _dx2_scaling_models
+), "No models registered with dx2.scaling_model_ext entry point"
 model_phil_scope.adopt_scope(
     phil.parse(
         "model ="
-        + " ".join(_dxtbx_scaling_models)
+        + " ".join(_dx2_scaling_models)
         + "\n    .type = choice"
         + "\n    .help = Set scaling model to be applied to input datasets"
         + "\n    .expert_level = 0"
     )
 )
-for entry_point_name, entry_point in _dxtbx_scaling_models.items():
+for entry_point_name, entry_point in _dx2_scaling_models.items():
     ext_master_scope = phil.parse("%s .expert_level=1 {}" % entry_point_name)
     ext_phil_scope = ext_master_scope.get_without_substitution(entry_point_name)
     assert len(ext_phil_scope) == 1
@@ -1282,7 +1282,7 @@ for entry_point_name, entry_point in _dxtbx_scaling_models.items():
 
 def plot_scaling_models(model_dict):
     """Return a dict of component plots for the model for plotting with plotly."""
-    entry_point = _dxtbx_scaling_models.get(model_dict["__id__"])
+    entry_point = _dx2_scaling_models.get(model_dict["__id__"])
     if entry_point:
         model = entry_point.load().from_dict(model_dict)
         return model.plot_model_components()

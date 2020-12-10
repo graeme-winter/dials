@@ -5,8 +5,8 @@ from __future__ import absolute_import, division, print_function
 import procrunner
 import pytest
 
-from dxtbx.model import Beam, Experiment, ExperimentList
-from dxtbx.serialize import load
+from dx2.model import Beam, Experiment, ExperimentList
+from dx2.serialize import load
 
 from dials.array_family import flex
 

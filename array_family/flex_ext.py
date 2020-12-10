@@ -370,7 +370,7 @@ class _(object):
         intensity array with sigmas (no scaling applied).
 
         Args:
-            experiment (dxtbx.model.Experiment): An experiment object.
+            experiment (dx2.model.Experiment): An experiment object.
             intensity (str): The intensity type that will be used to make the
                 miller array e.g 'prf', 'sum'.
 
@@ -1123,7 +1123,7 @@ Found %s"""
         refinement.
 
         Args:
-          experiments (dxtbx.model.ExperimentList): A list of experiments.
+          experiments (dx2.model.ExperimentList): A list of experiments.
         """
 
         self["xyzobs.mm.value"] = cctbx.array_family.flex.vec3_double(len(self))
@@ -1163,7 +1163,7 @@ Found %s"""
         contains a :py:class:`.flex.vec3_double` array of the reciprocal lattice vectors.
 
         Args:
-          experiments (dxtbx.model.ExperimentList): A list of experiments.
+          experiments (dx2.model.ExperimentList): A list of experiments.
           calculated (Bool): use calculated positions.
           crystal_frame (Bool): return x, y, z positions as divided by U matrix
         """

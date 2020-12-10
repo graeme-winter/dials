@@ -2,8 +2,8 @@
 
 from unittest import mock
 
-from dxtbx.model import Crystal, Experiment, Scan
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model import Crystal, Experiment, Scan
+from dx2.model.experiment_list import ExperimentList
 from libtbx import phil
 
 from dials.algorithms.scaling.model.model import KBScalingModel

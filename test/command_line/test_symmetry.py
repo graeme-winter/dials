@@ -11,8 +11,8 @@ import pytest
 
 import scitbx.matrix
 from cctbx import sgtbx, uctbx
-from dxtbx.model import Crystal, Experiment, ExperimentList, Scan
-from dxtbx.serialize import load
+from dx2.model import Crystal, Experiment, ExperimentList, Scan
+from dx2.serialize import load
 
 from dials.algorithms.symmetry.cosym._generate_test_data import (
     generate_experiments_reflections,

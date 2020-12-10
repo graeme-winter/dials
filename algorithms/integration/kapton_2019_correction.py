@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 class KaptonTape_2019(object):
-    """Class for defining Kapton tape using dxtbx models and finding the path through the tape traversed by s1 vector"""
+    """Class for defining Kapton tape using dx2 models and finding the path through the tape traversed by s1 vector"""
 
     def __init__(
         self,
@@ -31,7 +31,7 @@ class KaptonTape_2019(object):
         self.angle_rad = rotation_angle_deg * math.pi / 180.0  # plugin controlled
         self.wavelength_ang = wavelength_ang
         self.num_pixels = 5000  # number of pixels to put in fictitious kapton faces
-        # Now set up the kapton physical model using dxtbx detector objects
+        # Now set up the kapton physical model using dx2 detector objects
         #
         # determine absorption coeff (mm-1) through kapton for a given X-ray energy
         G = get_absorption_correction()
@@ -39,8 +39,8 @@ class KaptonTape_2019(object):
         self.abs_coeff = 1 / attenuation_length_mm
 
         def create_kapton_face(ori, fast, slow, image_size, pixel_size, name):
-            """Create a face of the kapton as a dxtbx detector object"""
-            from dxtbx.model import Detector
+            """Create a face of the kapton as a dx2 detector object"""
+            from dx2.model import Detector
 
             d = Detector()
             p = d.add_panel()

@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
 from scitbx import matrix
 

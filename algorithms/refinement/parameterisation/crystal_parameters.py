@@ -46,7 +46,7 @@ class CrystalOrientationParameterisation(
         """Initialise the CrystalOrientationParameterisation object
 
         Args:
-            crystal: A dxtbx Crystal object to be parameterised.
+            crystal: A dx2 Crystal object to be parameterised.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
         """
@@ -169,7 +169,7 @@ class CrystalUnitCellParameterisation(ModelParameterisation, CrystalUnitCellMixi
         """Initialise the CrystalUnitCellParameterisation object
 
         Args:
-            crystal: A dxtbx Crystal object to be parameterised.
+            crystal: A dx2 Crystal object to be parameterised.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
         """

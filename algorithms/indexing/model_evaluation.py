@@ -6,7 +6,7 @@ import logging
 import math
 
 import libtbx
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from scitbx import matrix
 from scitbx.array_family import flex
 

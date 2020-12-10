@@ -98,7 +98,7 @@ indexing_min_spots = 10
     integrate = params.extract().integrate
     indexing_min_spots = params.extract().indexing_min_spots
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     from dials.array_family import flex
     from dials.command_line.find_spots import phil_scope as find_spots_phil_scope

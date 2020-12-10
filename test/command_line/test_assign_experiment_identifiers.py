@@ -7,7 +7,7 @@ import os
 
 import procrunner
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 from dials.array_family import flex
 

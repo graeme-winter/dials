@@ -6,7 +6,7 @@ import warnings
 from collections import namedtuple
 
 from cctbx import crystal
-from dxtbx.masking import (
+from dx2.masking import (
     mask_untrusted_circle,
     mask_untrusted_polygon,
     mask_untrusted_rectangle,
@@ -103,7 +103,7 @@ CacheInfo = namedtuple("CacheInfo", ["hits", "misses", "maxsize", "currsize"])
 def lru_equality_cache(maxsize=10):
     """LRU cache that compares keys based on equality... inefficiently.
 
-    Used for dxtbx models that don't have unique id values so can't be
+    Used for dx2 models that don't have unique id values so can't be
     cached with a normal lru_cache.
 
     Args:

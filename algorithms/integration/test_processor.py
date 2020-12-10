@@ -3,7 +3,7 @@ from unittest import mock
 
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 import dials.algorithms.integration.processor
 from dials.algorithms.profile_model.gaussian_rs import Model

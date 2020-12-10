@@ -10,7 +10,7 @@ import pkg_resources
 import iotbx.phil
 import libtbx
 from cctbx import sgtbx
-from dxtbx.model import ExperimentList, ImageSequence
+from dx2.model import ExperimentList, ImageSequence
 
 import dials.util
 from dials.algorithms.indexing import (
@@ -413,7 +413,7 @@ class Indexer(object):
 
             if use_stills_indexer:
                 # Ensure the indexer and downstream applications treat this as set of stills
-                from dxtbx.imageset import ImageSet  # , MemImageSet
+                from dx2.imageset import ImageSet  # , MemImageSet
 
                 for experiment in experiments:
                     experiment.imageset = ImageSet(

@@ -42,7 +42,7 @@ def merge_counts(images):
 
 
 def read_image(in_image):
-    from dxtbx import load
+    from dx2 import load
 
     assert os.path.exists(in_image)
 

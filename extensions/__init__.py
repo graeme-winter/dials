@@ -100,7 +100,7 @@ class ProfileModel(_Extension):
     The interface definition for a profile model.
     """
 
-    entry_point = "dxtbx.profile_model"
+    entry_point = "dx2.profile_model"
     name = "profile"
     scope = "profile"
 

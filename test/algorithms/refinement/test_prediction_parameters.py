@@ -7,7 +7,7 @@ import pytest
 
 def test():
     from cctbx.sgtbx import space_group, space_group_symbols
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
     from libtbx.phil import parse
     from scitbx.array_family import flex
 
@@ -62,7 +62,7 @@ def test():
 
     # Build a mock scan for a 72 degree sequence
     sequence_range = (0.0, math.pi / 5.0)
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     myscan = sf.make_scan(

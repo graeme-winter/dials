@@ -28,7 +28,7 @@ output {
 
 
 def convert_to_cbf(imageset, template):
-    from dxtbx.format.FormatCBFMini import FormatCBFMini
+    from dx2.format.FormatCBFMini import FormatCBFMini
 
     for i in range(len(imageset)):
         print(template % (i + 1))

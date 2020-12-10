@@ -5,9 +5,9 @@ import random
 import sys
 
 import xfel.clustering.cluster
-from dxtbx.command_line.image_average import splitit
-from dxtbx.datablock import BeamDiff, DetectorDiff, GoniometerDiff
-from dxtbx.model.experiment_list import (
+from dx2.command_line.image_average import splitit
+from dx2.datablock import BeamDiff, DetectorDiff, GoniometerDiff
+from dx2.model.experiment_list import (
     BeamComparison,
     DetectorComparison,
     Experiment,

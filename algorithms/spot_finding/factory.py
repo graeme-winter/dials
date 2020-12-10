@@ -4,7 +4,7 @@ import time
 
 import numpy as np
 
-from dxtbx.imageset import ImageSequence
+from dx2.imageset import ImageSequence
 from iotbx.phil import parse
 
 import dials.extensions

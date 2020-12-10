@@ -9,7 +9,7 @@ from scitbx import matrix
 
 
 def test(dials_regression, run_in_tmpdir):
-    import dxtbx
+    import dx2
     from iotbx.xds import integrate_hkl, xparm
     from rstbx.cftbx.coordinate_frame_converter import coordinate_frame_converter
 
@@ -26,7 +26,7 @@ def test(dials_regression, run_in_tmpdir):
     gxparm_handle.read_file(gxparm_filename)
 
     # Get the parameters we need from the GXPARM file
-    models = dxtbx.load(gxparm_filename)
+    models = dx2.load(gxparm_filename)
     beam = models.get_beam()
     gonio = models.get_goniometer()
     scan = models.get_scan()

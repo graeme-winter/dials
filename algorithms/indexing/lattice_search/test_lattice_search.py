@@ -4,8 +4,8 @@ import py.path
 import pytest
 
 from cctbx import sgtbx, uctbx
-from dxtbx.imageset import ImageSet
-from dxtbx.serialize import load
+from dx2.imageset import ImageSet
+from dx2.serialize import load
 
 from dials.algorithms.indexing import lattice_search, stills_indexer
 from dials.array_family import flex

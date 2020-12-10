@@ -8,8 +8,8 @@ from unittest.mock import Mock
 import numpy as np
 import pytest
 
-from dxtbx.model import Crystal, Experiment
-from dxtbx.serialize import load
+from dx2.model import Crystal, Experiment
+from dx2.serialize import load
 from libtbx import phil
 from scitbx.sparse import matrix  # noqa: F401 - Needed to call calc_theta_phi
 

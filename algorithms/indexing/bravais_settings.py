@@ -11,7 +11,7 @@ import scitbx.matrix
 from cctbx import crystal, miller, sgtbx
 from cctbx.crystal_orientation import crystal_orientation
 from cctbx.sgtbx import bravais_types
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from libtbx.introspection import number_of_processors
 from rstbx.dps_core.lepage import iotbx_converter
 from rstbx.symmetry.subgroup import MetricSubgroup
@@ -61,8 +61,8 @@ refinement {
 )
 
 
-def dxtbx_crystal_from_orientation(crystal_orientation, space_group):
-    """Convert a cctbx crystal_orientation to a dxtbx.Crystal model.
+def dx2_crystal_from_orientation(crystal_orientation, space_group):
+    """Convert a cctbx crystal_orientation to a dx2.Crystal model.
 
     Args:
         crystal_orientation (cctbx.crystal_orientation):
@@ -70,7 +70,7 @@ def dxtbx_crystal_from_orientation(crystal_orientation, space_group):
         space_group (cctbx.sgtbx.space_group): The space group.
 
     Returns:
-        dxtbx.model.Crystal: The dxtbx crystal model.
+        dx2.model.Crystal: The dx2 crystal model.
     """
     dm = crystal_orientation.direct_matrix()
     AA = scitbx.matrix.col((dm[0], dm[1], dm[2]))
@@ -238,7 +238,7 @@ def refined_settings_from_refined_triclinic(experiments, reflections, params):
         )
         constrain_orient = orient.constrain(subgroup["system"])
         subgroup["bravais"] = str(bravais_types.bravais_lattice(group=space_group))
-        subgroup.unrefined_crystal = dxtbx_crystal_from_orientation(
+        subgroup.unrefined_crystal = dx2_crystal_from_orientation(
             constrain_orient, space_group
         )
 

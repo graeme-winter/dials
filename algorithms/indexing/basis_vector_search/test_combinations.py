@@ -4,7 +4,7 @@ import copy
 
 import scitbx.matrix
 from cctbx import sgtbx
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from scitbx.math import euler_angles_as_matrix
 
 from dials.algorithms.indexing.symmetry import find_matching_symmetry

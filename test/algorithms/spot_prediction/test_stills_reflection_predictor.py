@@ -10,7 +10,7 @@ from scitbx import matrix
 class Model(object):
     def __init__(self, test_nave_model=False):
         # Set up experimental models with regular geometry
-        from dxtbx.model import BeamFactory, DetectorFactory, GoniometerFactory
+        from dx2.model import BeamFactory, DetectorFactory, GoniometerFactory
 
         # Beam along the Z axis
         self.beam = BeamFactory.make_beam(unit_s0=matrix.col((0, 0, 1)), wavelength=1.0)
@@ -43,18 +43,18 @@ class Model(object):
         c = matrix.col((0, 0, 100))
 
         if test_nave_model:
-            from dxtbx.model import MosaicCrystalSauter2014
+            from dx2.model import MosaicCrystalSauter2014
 
             self.crystal = MosaicCrystalSauter2014(a, b, c, space_group_symbol="P 1")
             self.crystal.set_half_mosaicity_deg(500)
             self.crystal.set_domain_size_ang(0.2)
         else:
-            from dxtbx.model import Crystal
+            from dx2.model import Crystal
 
             self.crystal = Crystal(a, b, c, space_group_symbol="P 1")
 
         # Collect these models in an Experiment (ignoring the goniometer)
-        from dxtbx.model.experiment_list import Experiment
+        from dx2.model.experiment_list import Experiment
 
         self.experiment = Experiment(
             beam=self.beam,

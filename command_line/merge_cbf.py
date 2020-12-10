@@ -73,7 +73,7 @@ def get_raw_data_from_file(imageset, i):
 
 
 def merge_cbf(imageset, n_images, out_prefix="sum_", get_raw_data_from_imageset=True):
-    from dxtbx.format.FormatCBF import FormatCBF
+    from dx2.format.FormatCBF import FormatCBF
 
     assert issubclass(
         imageset.get_format_class(), FormatCBF

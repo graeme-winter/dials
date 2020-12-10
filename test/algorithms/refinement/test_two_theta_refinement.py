@@ -8,7 +8,7 @@ import os
 from copy import deepcopy
 from math import pi
 
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.test_utils import approx_equal
 
 from dials.algorithms.refinement.two_theta_refiner import (
@@ -98,7 +98,7 @@ def test_fd_derivatives():
     mybeam = models.beam
 
     # Build a mock scan for a 72 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     myscan = sf.make_scan(
@@ -201,7 +201,7 @@ def test_refinement(dials_regression):
     assert os.path.exists(experiments_path)
 
     # load models
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     experiments = ExperimentListFactory.from_serialized_format(
         experiments_path, check_format=False
@@ -211,19 +211,19 @@ def test_refinement(dials_regression):
     beam = im_set.get_beam()
 
     # Invent a crystal, goniometer and scan for this test
-    from dxtbx.model import Crystal
+    from dx2.model import Crystal
 
     crystal = Crystal(
         (40.0, 0.0, 0.0), (0.0, 40.0, 0.0), (0.0, 0.0, 40.0), space_group_symbol="P1"
     )
     orig_xl = deepcopy(crystal)
 
-    from dxtbx.model import GoniometerFactory
+    from dx2.model import GoniometerFactory
 
     goniometer = GoniometerFactory.known_axis((1.0, 0.0, 0.0))
 
     # Build a mock scan for a 180 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     scan = sf.make_scan(

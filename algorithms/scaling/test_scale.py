@@ -14,9 +14,9 @@ import pytest
 import iotbx.merging_statistics
 import iotbx.mtz
 from cctbx import uctbx
-from dxtbx.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
-from dxtbx.model.experiment_list import ExperimentList
-from dxtbx.serialize import load
+from dx2.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
+from dx2.model.experiment_list import ExperimentList
+from dx2.serialize import load
 from libtbx import phil
 
 from dials.algorithms.scaling.algorithm import ScalingAlgorithm, prepare_input

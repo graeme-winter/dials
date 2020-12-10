@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, print_function
 import math
 
 from cctbx.eltbx import henke
-from dxtbx.model import (
+from dx2.model import (
     BeamFactory,
     Crystal,
     DetectorFactory,

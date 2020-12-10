@@ -6,7 +6,7 @@ import random
 
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 from libtbx.phil import parse
 
 from dials.algorithms.refinement import RefinerFactory
@@ -17,7 +17,7 @@ from dials.array_family import flex
 def test_single_crystal_restraints_gradients():
     """Simple test with a single triclinic crystal restrained to a target unit cell"""
 
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     from dials.algorithms.refinement.parameterisation.beam_parameters import (
         BeamParameterisation,
@@ -53,7 +53,7 @@ def test_single_crystal_restraints_gradients():
     mybeam = models.beam
 
     # Build a mock scan for a 72 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     myscan = sf.make_scan(
@@ -151,7 +151,7 @@ def test_single_crystal_restraints_gradients():
 def test_two_triclinic_crystals():
     """Simple test with two triclinic crystals restrained to a target unit cell"""
 
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     from dials.algorithms.refinement.parameterisation.beam_parameters import (
         BeamParameterisation,
@@ -193,7 +193,7 @@ def test_two_triclinic_crystals():
     mybeam = models.beam
 
     # Build a mock scan for a 72 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     myscan = sf.make_scan(

@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function
 
 import pytest
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 from dials.algorithms.spot_finding import per_image_analysis
 from dials.array_family import flex

@@ -5,7 +5,7 @@ from __future__ import absolute_import, division, print_function
 
 import pytest
 
-from dxtbx.model import Experiment, ExperimentList
+from dx2.model import Experiment, ExperimentList
 
 from dials.array_family import flex
 from dials.test.util import mock_reflection_file_object, mock_two_reflection_file_object

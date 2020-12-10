@@ -851,7 +851,7 @@ def update_sources(options):
         for source in (
             "cctbx/annlib_adaptbx",
             "cctbx/cctbx_project",
-            "cctbx/dxtbx",
+            "cctbx/dx2",
             "dials/annlib",
             "dials/cbflib",
             "dials/ccp4io",
@@ -929,7 +929,7 @@ def update_sources(options):
 
 def run_tests():
     dispatch_extension = ".bat" if os.name == "nt" else ""
-    print("Running dxtbx tests")
+    print("Running dx2 tests")
     run_command(
         [
             os.path.join(
@@ -939,7 +939,7 @@ def run_tests():
             "-n",
             "auto",
         ],
-        workdir=os.path.join("modules", "dxtbx"),
+        workdir=os.path.join("modules", "dx2"),
     )
     print("Running dials tests")
     run_command(
@@ -1000,7 +1000,7 @@ def configure_build(config_flags):
         os.path.join("..", "modules", "cctbx_project", "libtbx", "configure.py"),
         "cctbx",
         "cbflib",
-        "dxtbx",
+        "dx2",
         "scitbx",
         "libtbx",
         "iotbx",

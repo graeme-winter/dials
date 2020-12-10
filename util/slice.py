@@ -8,7 +8,7 @@ from scitbx.array_family import flex
 def slice_experiments(experiments, image_ranges):
     """
     :param experiments
-    :type experiments: dxtbx.model.experiment_list.ExperimentList
+    :type experiments: dx2.model.experiment_list.ExperimentList
     :param image_range:
     :type image_range: list of 2-tuples defining scan range for each experiment
     """
@@ -35,7 +35,7 @@ def slice_experiments(experiments, image_ranges):
         exp.scan.swap(exp.scan[beg:end])
         if exp.imageset is not None:
             # Gorilla of temporary workarounds for inconsistent scan and imageset slicing
-            # https://github.com/cctbx/dxtbx/issues/213
+            # https://github.com/cctbx/dx2/issues/213
             offset = exp.scan.get_batch_offset()
             exp.imageset = exp.imageset[beg + offset : end + offset]
 

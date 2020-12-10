@@ -7,7 +7,7 @@ import operator
 
 import libtbx.phil
 from cctbx import miller
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from scitbx import matrix
 from scitbx.math import least_squares_plane, superpose
 
@@ -154,7 +154,7 @@ class LowResSpotMatch(Strategy):
             reflections (dials.array_family.flex.reflection_table):
                 The found spots centroids and associated data
 
-            experiments (dxtbx.model.experiment_list.ExperimentList):
+            experiments (dx2.model.experiment_list.ExperimentList):
                 The experimental geometry models
         """
 

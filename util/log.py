@@ -87,7 +87,7 @@ def config(verbosity=0, logfile=None):
         warning_logger.addHandler(fh)
 
     dials_logger.setLevel(loglevel)
-    #   logging.getLogger("dxtbx").setLevel(logging.DEBUG)
+    #   logging.getLogger("dx2").setLevel(logging.DEBUG)
     console.setLevel(loglevel)
 
     print_banner(use_logging=True)

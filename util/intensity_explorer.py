@@ -21,7 +21,7 @@ import logging
 import scipy.stats
 
 from cctbx import miller
-from dxtbx.model import ExperimentList
+from dx2.model import ExperimentList
 
 from dials.array_family import flex
 
@@ -40,7 +40,7 @@ class IntensityDist(object):
     ):
         """
         Generate z-scores and a normal probability plot from a DIALS
-        reflection_table and a dxtbx ExperimentList, containing the observations
+        reflection_table and a dx2 ExperimentList, containing the observations
         and the corresponding experiments, respectively.
 
         :param rtable: A reflection table object, containing at least the columns
@@ -50,7 +50,7 @@ class IntensityDist(object):
           * ``xyzobs.px.value``
         :type rtable: dials.array_family_flex_ext.reflection_table
         :param elist: A corresponding experiment list.
-        :type elist: dxtbx.model.ExperimentList
+        :type elist: dx2.model.ExperimentList
         :param calculate_variances: Choose whether to calculate weighted
         aggregate variances.  Doing so incurs a performance penalty.
         Defaullts to False.

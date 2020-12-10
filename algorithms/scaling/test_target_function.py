@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-from dxtbx.model import Crystal, Experiment, Scan
+from dx2.model import Crystal, Experiment, Scan
 from libtbx import phil
 from scitbx import sparse
 

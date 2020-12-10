@@ -8,7 +8,7 @@ import pytest
 
 class Data(object):
     def __init__(self, dials_data, dials_regression):
-        from dxtbx.model.experiment_list import ExperimentListFactory
+        from dx2.model.experiment_list import ExperimentListFactory
 
         self.experiments = ExperimentListFactory.from_json_file(
             dials_data("centroid_test_data").join("experiments.json").strpath

@@ -4,7 +4,7 @@ import math
 
 
 def test(dials_data):
-    from dxtbx.model.experiment_list import ExperimentList, ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentList, ExperimentListFactory
 
     exlist = ExperimentListFactory.from_json_file(
         dials_data("centroid_test_data").join("fake_long_experiments.json").strpath

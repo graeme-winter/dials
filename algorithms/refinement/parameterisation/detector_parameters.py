@@ -301,7 +301,7 @@ class DetectorParameterisationSinglePanel(ModelParameterisation, DetectorMixin):
         """Initialise the DetectorParameterisationSinglePanel object
 
         Args:
-            detector: A dxtbx Detector object to be parameterised.
+            detector: A dx2 Detector object to be parameterised.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
         """
@@ -386,8 +386,8 @@ class DetectorParameterisationMultiPanel(ModelParameterisation):
         """Initialise the DetectorParameterisationMultiPanel object
 
         Args:
-            detector: A dxtbx Detector object to be parameterised.
-            beam: An dxtbx beam object used to calculate the closest panel.
+            detector: A dx2 Detector object to be parameterised.
+            beam: An dx2 beam object used to calculate the closest panel.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
         """
@@ -917,7 +917,7 @@ class DetectorParameterisationHierarchical(DetectorParameterisationMultiPanel):
         """Initialise the DetectorParameterisationHierarchical object
 
         Args:
-            detector: A dxtbx Detector object to be parameterised.
+            detector: A dx2 Detector object to be parameterised.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
             level (int): Select level of the detector hierarchy to determine panel

@@ -186,7 +186,7 @@ def run(args=None):
 
     reference_crystal = None
     if params.reference.experiments is not None:
-        from dxtbx.serialize import load
+        from dx2.serialize import load
 
         reference_experiments = load.experiment_list(
             params.reference.experiments, check_format=False

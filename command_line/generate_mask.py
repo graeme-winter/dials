@@ -27,8 +27,8 @@ from typing import List, Optional, Tuple
 import six.moves.cPickle as pickle
 
 import libtbx.phil as phil
-from dxtbx.format.image import ImageBool
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.format.image import ImageBool
+from dx2.model.experiment_list import ExperimentList
 from scitbx.array_family import flex
 
 import dials.util

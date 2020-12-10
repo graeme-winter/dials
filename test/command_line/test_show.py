@@ -5,7 +5,7 @@ import shutil
 
 import procrunner
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 from dials.command_line.show import model_connectivity, run
 

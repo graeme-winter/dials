@@ -12,8 +12,8 @@ def test():
     from cctbx.sgtbx import space_group, space_group_symbols
 
     # We will set up a mock scan
-    from dxtbx.model import ScanFactory
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model import ScanFactory
+    from dx2.model.experiment_list import Experiment, ExperimentList
     from libtbx.phil import parse
     from scitbx import matrix
     from scitbx.array_family import flex

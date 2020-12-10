@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function
 def test_run(dials_regression, run_in_tmpdir):
     from os.path import join
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     from dials.array_family import flex
     from dials.command_line.export import phil_scope

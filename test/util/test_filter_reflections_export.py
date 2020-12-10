@@ -32,8 +32,8 @@ from unittest import mock
 import pytest
 
 from cctbx import miller
-from dxtbx.model import Crystal, Experiment, ExperimentList
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model import Crystal, Experiment, ExperimentList
+from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.array_family import flex
 from dials.util.filter_reflections import (

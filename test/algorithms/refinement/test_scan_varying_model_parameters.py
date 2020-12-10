@@ -6,7 +6,7 @@ import textwrap
 
 import pytest
 
-from dxtbx.model import Beam, Crystal, Goniometer
+from dx2.model import Beam, Crystal, Goniometer
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 from scitbx.array_family import flex
@@ -225,7 +225,7 @@ class _TestScanVaryingModelParameterisation(object):
         npx_fast = 1475
         npx_slow = 1679
         pix_size_f = pix_size_s = 0.172
-        from dxtbx.model import DetectorFactory
+        from dx2.model import DetectorFactory
 
         self.detector = DetectorFactory.make_detector(
             "PAD",

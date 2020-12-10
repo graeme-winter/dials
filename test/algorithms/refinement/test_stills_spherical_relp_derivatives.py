@@ -7,7 +7,7 @@ from __future__ import absolute_import, division, print_function
 import pytest
 
 from cctbx.sgtbx import space_group, space_group_symbols
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from scitbx import matrix
 
@@ -250,7 +250,7 @@ def test():
     mybeam = models.beam
 
     # Build a mock scan for a 3 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     myscan = sf.make_scan(

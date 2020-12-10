@@ -5,8 +5,8 @@ import pytest
 
 import scitbx
 from cctbx import uctbx
-from dxtbx.model import ExperimentList
-from dxtbx.serialize import load
+from dx2.model import ExperimentList
+from dx2.serialize import load
 
 from dials.algorithms.indexing.test_index import run_indexing
 from dials.command_line import search_beam_position

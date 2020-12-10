@@ -173,7 +173,7 @@ is provided. For example, physical.decay_correction rather than decay_correction
         available_models = [
             entry_point.name
             for entry_point in pkg_resources.iter_entry_points(
-                "dxtbx.scaling_model_ext"
+                "dx2.scaling_model_ext"
             )
         ]
         phil_branches = [

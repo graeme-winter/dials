@@ -4,7 +4,7 @@ import pytest
 
 
 def test(dials_data):
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     from dials.algorithms.spot_prediction import PixelToMillerIndex
     from dials.array_family import flex

@@ -8,7 +8,7 @@ import sys
 
 import iotbx.cif.model
 from cctbx import miller, sgtbx
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from libtbx.utils import format_float_with_standard_uncertainty
 

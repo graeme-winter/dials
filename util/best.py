@@ -45,7 +45,7 @@ def write_integrated_hkl(prefix, reflections):
 
 
 def write_par_file(file_name, experiment):
-    from dxtbx.model import Crystal
+    from dx2.model import Crystal
     from iotbx.mtz.extract_from_symmetry_lib import ccp4_symbol
     from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
     from scitbx import matrix

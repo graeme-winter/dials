@@ -25,7 +25,7 @@ class Strategy(object):
             reflections (dials.array_family.flex.reflection_table):
                 The found spots centroids and associated data
 
-            experiments (dxtbx.model.experiment_list.ExperimentList):
+            experiments (dx2.model.experiment_list.ExperimentList):
                 The experimental geometry models
 
         Returns:

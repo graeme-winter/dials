@@ -1,6 +1,6 @@
 import math
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 from .reciprocal_space import Simulator
 

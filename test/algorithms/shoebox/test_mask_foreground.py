@@ -8,8 +8,8 @@ from scitbx import matrix
 
 
 def test(dials_data):
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
-    from dxtbx.serialize import load
+    from dx2.model.experiment_list import Experiment, ExperimentList
+    from dx2.serialize import load
 
     from dials.algorithms.profile_model.gaussian_rs import MaskCalculator3D, Model
 

@@ -13,7 +13,7 @@ import six
 import six.moves.cPickle as pickle
 from six import BytesIO
 
-from dxtbx.model.experiment_list import (
+from dx2.model.experiment_list import (
     Experiment,
     ExperimentList,
     ExperimentListFactory,
@@ -289,7 +289,7 @@ def do_import(filename, load_models=True):
     if len(experiments) == 0:
         raise Abort("Could not load %s" % filename)
 
-    from dxtbx.imageset import ImageSetFactory
+    from dx2.imageset import ImageSetFactory
 
     all_experiments = ExperimentList()
     for experiment in experiments:
@@ -343,7 +343,7 @@ class Script(object):
         if self.params.input.reference_geometry is None:
             return
 
-        from dxtbx.model.experiment_list import ExperimentListFactory
+        from dx2.model.experiment_list import ExperimentListFactory
 
         try:
             ref_experiments = ExperimentListFactory.from_json_file(
@@ -351,9 +351,9 @@ class Script(object):
             )
         except Exception:
             try:
-                import dxtbx
+                import dx2
 
-                img = dxtbx.load(self.params.input.reference_geometry)
+                img = dx2.load(self.params.input.reference_geometry)
             except Exception:
                 raise Sorry(
                     "Couldn't load geometry file %s"
@@ -723,7 +723,7 @@ class Script(object):
                     if processor:
                         processor.finalize()
         else:
-            from dxtbx.command_line.image_average import splitit
+            from dx2.command_line.image_average import splitit
 
             if params.mp.nproc == 1:
                 do_work(0, iterable)
@@ -795,7 +795,7 @@ class Processor(object):
 
         if params.output.composite_output:
             assert composite_tag is not None
-            from dxtbx.model.experiment_list import ExperimentList
+            from dx2.model.experiment_list import ExperimentList
 
             self.all_imported_experiments = ExperimentList()
             self.all_strong_reflections = flex.reflection_table()
@@ -1257,7 +1257,7 @@ The detector is reporting a gain of %f but you have also supplied a gain of %f. 
                 )()
 
         if self.params.significance_filter.enable:
-            from dxtbx.model.experiment_list import ExperimentList
+            from dx2.model.experiment_list import ExperimentList
 
             from dials.algorithms.integration.stills_significance_filter import (
                 SignificanceFilter,

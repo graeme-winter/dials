@@ -2,7 +2,7 @@ import random
 from unittest import mock
 
 from cctbx import sgtbx
-from dxtbx.model import Crystal, Experiment, ExperimentList
+from dx2.model import Crystal, Experiment, ExperimentList
 from scitbx import matrix
 
 from dials.algorithms.clustering import observers

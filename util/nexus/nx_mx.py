@@ -486,7 +486,7 @@ def dump_details(entry):
 
 
 def load_beam(entry):
-    from dxtbx.model import Beam
+    from dx2.model import Beam
 
     EPS = 1e-7
 
@@ -503,7 +503,7 @@ def load_beam(entry):
 
 
 def load_detector(entry):
-    from dxtbx.model import Detector
+    from dx2.model import Detector
 
     # Get the detector module object
     nx_instrument = get_nx_instrument(entry, "instrument")
@@ -572,7 +572,7 @@ def load_detector(entry):
 
 
 def load_goniometer(entry):
-    from dxtbx.model import Goniometer
+    from dx2.model import Goniometer
 
     # Write out the rotation axis and oscillation
     nx_sample = get_nx_sample(entry, "sample")
@@ -613,7 +613,7 @@ def load_goniometer(entry):
 
 
 def load_scan(entry):
-    from dxtbx.model import Scan
+    from dx2.model import Scan
 
     # Write out the rotation axis and oscillation
     nx_sample = get_nx_sample(entry, "sample")
@@ -636,7 +636,7 @@ def load_scan(entry):
 
 def load_crystal(entry):
     from cctbx import uctbx
-    from dxtbx.model import Crystal
+    from dx2.model import Crystal
     from scitbx.array_family import flex
 
     # Get the sample
@@ -707,7 +707,7 @@ def load_crystal(entry):
 
 
 def dump(entry, experiments, params):
-    from dxtbx.imageset import ImageSequence
+    from dx2.imageset import ImageSequence
 
     print("Dumping NXmx")
 
@@ -831,7 +831,7 @@ def find_nx_mx_entries(nx_file, entry):
 
 
 def load(entry, exp_index):
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     print("Loading NXmx")
 

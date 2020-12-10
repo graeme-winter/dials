@@ -14,8 +14,8 @@ from orderedset import OrderedSet
 from six.moves.urllib.parse import urlparse
 
 import libtbx.phil
-from dxtbx.model import ExperimentList
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model import ExperimentList
+from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.array_family import flex
 from dials.util import Sorry
@@ -109,10 +109,10 @@ geometry
   .help = "Allow overrides of experimental geometry"
   .expert_level = 2
 {
-  include scope dxtbx.model.beam.beam_phil_scope
-  include scope dxtbx.model.detector.detector_phil_scope
-  include scope dxtbx.model.goniometer.goniometer_phil_scope
-  include scope dxtbx.model.scan.scan_phil_scope
+  include scope dx2.model.beam.beam_phil_scope
+  include scope dx2.model.detector.detector_phil_scope
+  include scope dx2.model.goniometer.goniometer_phil_scope
+  include scope dx2.model.scan.scan_phil_scope
 
   convert_stills_to_sequences = False
     .type = bool
@@ -260,7 +260,7 @@ class Importer(object):
         :param load_models: Whether to load all models for ExperimentLists
         :return: Unhandled arguments
         """
-        from dxtbx.model.experiment_list import ExperimentListFactory
+        from dx2.model.experiment_list import ExperimentListFactory
 
         # If filenames contain wildcards, expand
         args_new = []
@@ -299,7 +299,7 @@ class Importer(object):
         :param verbose: Print verbose output
         :returns: Unhandled arguments
         """
-        from dxtbx.model.experiment_list import InvalidExperimentListError
+        from dx2.model.experiment_list import InvalidExperimentListError
 
         unhandled = []
         for argument in args:
@@ -437,7 +437,7 @@ class PhilCommandParser(object):
                             ignoring class constructor options.
         :return: The options and parameters and (optionally) unhandled arguments
         """
-        from dxtbx.model.experiment_list import (
+        from dx2.model.experiment_list import (
             BeamComparison,
             DetectorComparison,
             GoniometerComparison,

@@ -8,7 +8,7 @@ from math import pi
 
 import pytest
 
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 from scitbx.array_family import flex
 
 from dials.algorithms.refinement.reflection_manager import BlockCalculator
@@ -38,7 +38,7 @@ def create_experiments(image_start=1):
     beam = models.beam
 
     # Build a mock scan for a 72 degree sequence
-    from dxtbx.model import ScanFactory
+    from dx2.model import ScanFactory
 
     sf = ScanFactory()
     scan = sf.make_scan(

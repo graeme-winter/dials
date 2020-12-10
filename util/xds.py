@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function
 import logging
 import os
 
-from dxtbx.serialize import xds
+from dx2.serialize import xds
 from iotbx.xds import spot_xds
 from scitbx import matrix
 

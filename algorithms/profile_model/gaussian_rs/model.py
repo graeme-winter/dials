@@ -426,7 +426,7 @@ class Model(ProfileModelExt):
         :param goniometer: The goniometer model
         :param scan: The scan model
         """
-        from dxtbx.model.experiment_list import Experiment
+        from dx2.model.experiment_list import Experiment
 
         from dials.algorithms.spot_prediction.reflection_predictor import (
             ReflectionPredictor,

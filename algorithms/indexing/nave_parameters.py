@@ -33,7 +33,7 @@ class NaveParameters(object):
 
         all_crystals = []
         self.nv_acceptance_flags = flex.bool(len(self.reflections["id"]))
-        from dxtbx.model import MosaicCrystalSauter2014
+        from dx2.model import MosaicCrystalSauter2014
 
         for iid, experiment in enumerate(self.experiments):
             excursion_rad = RR["delpsical.rad"].select(RR["id"] == iid)

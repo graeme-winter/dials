@@ -26,7 +26,7 @@ import logging
 import math
 import sys
 
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 
 import dials.util.log

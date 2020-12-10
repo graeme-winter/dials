@@ -200,7 +200,7 @@ def write(handle, key, data):
 
 
 def read(handle, key):
-    from dxtbx.format.nexus import convert_units
+    from dx2.format.nexus import convert_units
 
     if key == "miller_index":
         h = flex.int(handle["h"][:].astype(np.int32))

@@ -91,8 +91,8 @@ class BeamParameterisation(ModelParameterisation, BeamMixin):
         """Initialise the BeamParameterisation object
 
         Args:
-            beam: A dxtbx Beam object to be parameterised.
-            goniometer: An optional dxtbx Goniometer object. Defaults to None.
+            beam: A dx2 Beam object to be parameterised.
+            goniometer: An optional dx2 Goniometer object. Defaults to None.
             experiment_ids (list): The experiment IDs affected by this
                 parameterisation. Defaults to None, which is replaced by [0].
         """

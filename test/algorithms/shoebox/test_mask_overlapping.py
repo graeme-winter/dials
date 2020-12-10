@@ -4,7 +4,7 @@ import numpy as np
 
 
 def predict_reflections(sequence, crystal):
-    from dxtbx.model.experiment_list import Experiment, ExperimentList
+    from dx2.model.experiment_list import Experiment, ExperimentList
 
     from dials.algorithms import shoebox
     from dials.algorithms.profile_model.gaussian_rs import Model
@@ -44,7 +44,7 @@ def predict_reflections(sequence, crystal):
 
 
 def test(dials_data):
-    from dxtbx.serialize import load
+    from dx2.serialize import load
 
     from dials.algorithms import shoebox
     from dials.array_family import flex

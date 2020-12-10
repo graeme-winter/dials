@@ -8,8 +8,8 @@ import pytest
 
 from cctbx import crystal, miller, uctbx
 from cctbx.sgtbx import space_group
-from dxtbx.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
+from dx2.model.experiment_list import ExperimentList
 from libtbx import phil
 
 from dials.algorithms.scaling.model.model import KBScalingModel, PhysicalScalingModel

@@ -10,8 +10,8 @@ from __future__ import absolute_import, division, print_function
 
 import logging
 
-from dxtbx.model import MosaicCrystalSauter2014
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model import MosaicCrystalSauter2014
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from scitbx import matrix
 

@@ -13,9 +13,9 @@ def SlipViewerImageFactory(filename):
         return defaultImageFactory(filename)
 
 
-# Use the dxtbx class as it handles all possible variance of NPY images
+# Use the dx2 class as it handles all possible variance of NPY images
 def NpyImageFactory(filename):
-    from dxtbx.format.FormatPYunspecified import FormatPYunspecified
+    from dx2.format.FormatPYunspecified import FormatPYunspecified
 
     img = FormatPYunspecified(filename)
     return img.get_detectorbase()

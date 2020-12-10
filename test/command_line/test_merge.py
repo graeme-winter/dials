@@ -6,7 +6,7 @@ import procrunner
 import pytest
 
 from cctbx import uctbx
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 from iotbx import mtz
 
 from dials.array_family import flex

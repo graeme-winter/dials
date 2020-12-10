@@ -2,7 +2,7 @@ from __future__ import absolute_import, division, print_function
 
 import pytest
 
-from dxtbx.model import Detector
+from dx2.model import Detector
 
 from dials.algorithms.refinement import DialsRefineConfigError
 from dials.algorithms.refinement.parameterisation.autoreduce import AutoReduce

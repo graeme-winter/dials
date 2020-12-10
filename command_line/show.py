@@ -8,7 +8,7 @@ import numpy as np
 
 import iotbx.phil
 from cctbx import uctbx
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 from scitbx.math import five_number_summary
 
 import dials.util

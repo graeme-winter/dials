@@ -1,5 +1,5 @@
 """Test for new experiment identifier features"""
-from dxtbx.model import Experiment, ExperimentList
+from dx2.model import Experiment, ExperimentList
 
 from dials.array_family import flex
 
@@ -70,7 +70,7 @@ def test_select_using_experiment():
     assert not sel_refl
 
     # Test returns nothing if no identifiers set. Thought is that this is
-    # more useful than raising a dxtbx assert error, as it allows handling within
+    # more useful than raising a dx2 assert error, as it allows handling within
     # python in case identifiers not set.
     refl = flex.reflection_table()
     refl["idx"] = flex.int([0, 1, 2, 3, 4, 5])

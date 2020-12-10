@@ -8,7 +8,7 @@ import pytest
 
 import procrunner
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 from dials.algorithms.integration.processor import _average_bbox_size
 from dials.array_family import flex

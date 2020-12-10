@@ -7,7 +7,7 @@ have a scan object.
 """
 from __future__ import absolute_import, division, print_function
 
-from dxtbx.model import Experiment, Scan
+from dx2.model import Experiment, Scan
 
 from dials.array_family import flex
 from dials.util.batch_handling import (

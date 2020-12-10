@@ -5,7 +5,7 @@ import logging
 import math
 
 import libtbx
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model.experiment_list import Experiment, ExperimentList
 
 from dials.algorithms.indexing import DialsIndexError, DialsIndexRefineError
 from dials.algorithms.indexing.indexer import Indexer

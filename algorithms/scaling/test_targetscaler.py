@@ -9,7 +9,7 @@ from math import log
 
 import pytest
 
-from dxtbx.model import Crystal, Experiment, ExperimentList
+from dx2.model import Crystal, Experiment, ExperimentList
 from libtbx import phil
 
 from dials.algorithms.scaling.model.model import KBScalingModel

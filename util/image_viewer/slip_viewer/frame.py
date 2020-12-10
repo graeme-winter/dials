@@ -365,7 +365,7 @@ class XrayFrame(XFBaseClass):
             panel_id, (x_mm, y_mm) = detector.get_ray_intersection(beam.get_s0())
         except RuntimeError as e:
             if not ("DXTBX_ASSERT(" in str(e) and ") failure" in str(e)):
-                # unknown exception from dxtbx
+                # unknown exception from dx2
                 raise e
             # find the panel whose center is closest to the beam.
             panel_id = 0

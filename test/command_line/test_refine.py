@@ -15,7 +15,7 @@ import procrunner
 import pytest
 from annlib_ext import AnnAdaptor
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.algorithms.refinement.engine import Journal
 from dials.array_family import flex

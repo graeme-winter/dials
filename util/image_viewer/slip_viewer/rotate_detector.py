@@ -2,7 +2,7 @@ from __future__ import division, print_function
 
 import sys
 
-from dxtbx.model.experiment_list import ExperimentList
+from dx2.model.experiment_list import ExperimentList
 from scitbx.matrix import col
 
 """

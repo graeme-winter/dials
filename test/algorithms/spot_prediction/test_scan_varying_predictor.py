@@ -8,8 +8,8 @@ from __future__ import absolute_import, division, print_function
 import math
 
 from cctbx.sgtbx import space_group, space_group_symbols
-from dxtbx.model import ScanFactory
-from dxtbx.model.experiment_list import Experiment, ExperimentList
+from dx2.model import ScanFactory
+from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from libtbx.test_utils import approx_equal
 from scitbx.array_family import flex

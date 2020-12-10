@@ -8,17 +8,17 @@ import pytest
 
 from cctbx import crystal, sgtbx
 from cctbx.sgtbx import bravais_types
-from dxtbx.format import Format
-from dxtbx.imageset import ImageSequence, ImageSetData
-from dxtbx.model import (
+from dx2.format import Format
+from dx2.imageset import ImageSequence, ImageSetData
+from dx2.model import (
     BeamFactory,
     Crystal,
     DetectorFactory,
     GoniometerFactory,
     ScanFactory,
 )
-from dxtbx.model.experiment_list import Experiment, ExperimentList
-from dxtbx.serialize import load
+from dx2.model.experiment_list import Experiment, ExperimentList
+from dx2.serialize import load
 from scitbx import matrix
 from scitbx.math import euler_angles_as_matrix
 

@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function
 import logging
 import math
 
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from scitbx.array_family import flex
 
 from dials.algorithms.indexing.compare_orientation_matrices import (
@@ -87,7 +87,7 @@ def filter_known_symmetry(
     """Filter crystal models for known symmetry.
 
     Args:
-        crystal_models (list): A list of :class:`dxtbx.model.Crystal` objects.
+        crystal_models (list): A list of :class:`dx2.model.Crystal` objects.
         target_symmetry (cctbx.crystal.symmetry): The target symmetry for filtering.
         relative_length_tolerance (float): Relative tolerance for unit cell lengths in
             unit cell comparision (default value is 0.1).

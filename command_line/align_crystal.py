@@ -9,7 +9,7 @@ import sys
 
 import iotbx.phil
 from cctbx import sgtbx
-from dxtbx.model import MultiAxisGoniometer
+from dx2.model import MultiAxisGoniometer
 from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
 from scitbx import matrix
 

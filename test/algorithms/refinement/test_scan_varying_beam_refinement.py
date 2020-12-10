@@ -5,7 +5,7 @@ import os
 import procrunner
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 
 def plot_beam_centre_error(ideal_bc, obs_bc):

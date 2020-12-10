@@ -56,7 +56,7 @@ class ReflectionPredictor(object):
         :param margin: The margin of hkl to predict
         :param force_static: force scan varying prediction to be static
         """
-        from dxtbx.imageset import ImageSequence
+        from dx2.imageset import ImageSequence
 
         from dials.algorithms.spot_prediction import (
             ScanStaticReflectionPredictor,

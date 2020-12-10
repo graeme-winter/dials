@@ -10,7 +10,7 @@ from scitbx import matrix
 
 class RayPredictor:
     def __init__(self, dials_regression):
-        import dxtbx
+        import dx2
         from iotbx.xds import integrate_hkl, xparm
         from rstbx.cftbx.coordinate_frame_converter import coordinate_frame_converter
 
@@ -33,7 +33,7 @@ class RayPredictor:
         self.gxparm_handle.read_file(gxparm_filename)
 
         # Get the parameters we need from the GXPARM file
-        models = dxtbx.load(gxparm_filename)
+        models = dx2.load(gxparm_filename)
         self.beam = models.get_beam()
         self.gonio = models.get_goniometer()
         self.detector = models.get_detector()

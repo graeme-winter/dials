@@ -18,7 +18,7 @@ class Data(object):
             "experiments_scan_varying_crystal.json",
         )
 
-        from dxtbx.model.experiment_list import ExperimentListFactory
+        from dx2.model.experiment_list import ExperimentListFactory
 
         self.experiments = ExperimentListFactory.from_json_file(path)
         assert len(self.experiments) == 1

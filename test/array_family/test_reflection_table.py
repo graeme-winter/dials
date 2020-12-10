@@ -7,8 +7,8 @@ import random
 import pytest
 
 from cctbx import sgtbx
-from dxtbx.model import Crystal, Experiment, ExperimentList
-from dxtbx.serialize import load
+from dx2.model import Crystal, Experiment, ExperimentList
+from dx2.serialize import load
 
 from dials.array_family import flex
 
@@ -1180,7 +1180,7 @@ def test_to_from_msgpack(tmpdir):
 
 
 def test_experiment_identifiers():
-    from dxtbx.model import Experiment, ExperimentList
+    from dx2.model import Experiment, ExperimentList
 
     table = flex.reflection_table()
     table["id"] = flex.int([0, 1, 2, 3])

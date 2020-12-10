@@ -7,8 +7,8 @@ from collections import namedtuple
 import six
 import six.moves.cPickle as pickle
 
-from dxtbx.imageset import ImageGrid, ImageSequence
-from dxtbx.model.experiment_list import (
+from dx2.imageset import ImageGrid, ImageSequence
+from dx2.model.experiment_list import (
     Experiment,
     ExperimentList,
     ExperimentListFactory,
@@ -277,7 +277,7 @@ class ReferenceGeometryUpdater(object):
         reference_detector = None
         reference_beam = None
         if params.input.reference_geometry is not None:
-            from dxtbx.serialize import load
+            from dx2.serialize import load
 
             experiments = None
             experiments = load.experiment_list(
@@ -324,8 +324,8 @@ class ManualGeometryUpdater(object):
         """
         from copy import deepcopy
 
-        from dxtbx.imageset import ImageSequence, ImageSetFactory
-        from dxtbx.model import (
+        from dx2.imageset import ImageSequence, ImageSetFactory
+        from dx2.model import (
             BeamFactory,
             DetectorFactory,
             GoniometerFactory,
@@ -385,7 +385,7 @@ class ManualGeometryUpdater(object):
     def extrapolate_imageset(
         self, imageset=None, beam=None, detector=None, goniometer=None, scan=None
     ):
-        from dxtbx.imageset import ImageSetFactory
+        from dx2.imageset import ImageSetFactory
 
         first, last = scan.get_image_range()
         sequence = ImageSetFactory.make_sequence(
@@ -401,7 +401,7 @@ class ManualGeometryUpdater(object):
         return sequence
 
     def convert_stills_to_sequence(self, imageset):
-        from dxtbx.model import Scan
+        from dx2.model import Scan
 
         assert self.params.geometry.scan.oscillation is not None
         beam = imageset.get_beam(index=0)
@@ -431,8 +431,8 @@ class ManualGeometryUpdater(object):
                 setting_rotation_tolerance=self.params.input.tolerance.goniometer.setting_rotation,
             )
         oscillation = self.params.geometry.scan.oscillation
-        from dxtbx.imageset import ImageSetFactory
-        from dxtbx.sequence_filenames import template_regex_from_list
+        from dx2.imageset import ImageSetFactory
+        from dx2.sequence_filenames import template_regex_from_list
 
         template, indices = template_regex_from_list(imageset.paths())
         image_range = (min(indices), max(indices))
@@ -522,7 +522,7 @@ class MetaDataUpdater(object):
           unable to process your data.
 
           Possible causes of this error are:
-             - A problem reading the images with one of the dxtbx format classes
+             - A problem reading the images with one of the dx2 format classes
              - A lack of header information in the file itself.
 
           You can override this by specifying the metadata as geometry parameters
@@ -594,7 +594,7 @@ class MetaDataUpdater(object):
         return experiments
 
     def update_lookup(self, imageset, lookup):
-        from dxtbx.format.image import ImageBool, ImageDouble
+        from dx2.format.image import ImageBool, ImageDouble
 
         if lookup.size is not None:
             d = imageset.get_detector()
@@ -916,7 +916,7 @@ class Script(object):
         """
         Print a diff between sequences.
         """
-        from dxtbx.model.experiment_list import SequenceDiff
+        from dx2.model.experiment_list import SequenceDiff
 
         diff = SequenceDiff(params.input.tolerance)
         text = diff(sequence1, sequence2)

@@ -4,7 +4,7 @@ import random
 import textwrap
 from math import cos, pi, sin, sqrt
 
-from dxtbx.model import BeamFactory, Detector, DetectorFactory, Panel
+from dx2.model import BeamFactory, Detector, DetectorFactory, Panel
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 

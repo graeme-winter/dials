@@ -4,10 +4,10 @@ import os
 
 import pytest
 
-import dxtbx
-from dxtbx.format.FormatCBFCspad import FormatCBFCspadInMemory
-from dxtbx.imageset import ImageSet, ImageSetData, MemReader
-from dxtbx.model.experiment_list import ExperimentListFactory
+import dx2
+from dx2.format.FormatCBFCspad import FormatCBFCspadInMemory
+from dx2.imageset import ImageSet, ImageSetData, MemReader
+from dx2.model.experiment_list import ExperimentListFactory
 from libtbx import easy_run
 from libtbx.phil import parse
 
@@ -76,7 +76,7 @@ def test_cspad_cbf_in_memory(dials_regression, run_in_tmpdir):
     params = phil_scope.fetch(parse(file_name="process_lcls.phil")).extract()
     params.output.experiments_filename = None
     processor = Processor(params)
-    mem_img = dxtbx.load(image_path)
+    mem_img = dx2.load(image_path)
     raw_data = mem_img.get_raw_data()  # cache the raw data to prevent swig errors
     mem_img = FormatCBFCspadInMemory(mem_img._cbf_handle)
     mem_img._raw_data = raw_data

@@ -7,9 +7,9 @@ import procrunner
 import pytest
 
 from cctbx import uctbx
-from dxtbx.model import ExperimentList
-from dxtbx.serialize import load
-from dxtbx.serialize.load import _decode_dict
+from dx2.model import ExperimentList
+from dx2.serialize import load
+from dx2.serialize.load import _decode_dict
 from iotbx import mtz
 
 from dials.array_family import flex
@@ -343,7 +343,7 @@ def test_json(dials_data, tmpdir):
     assert not result.returncode and not result.stderr
     assert tmpdir.join("rlp.json").check(file=1)
 
-    from dxtbx.model.experiment_list import ExperimentListFactory
+    from dx2.model.experiment_list import ExperimentListFactory
 
     with tmpdir.join("rlp.json").open("rb") as f:
         d = json.load(f, object_hook=_decode_dict)

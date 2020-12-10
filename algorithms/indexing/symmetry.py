@@ -7,7 +7,7 @@ from cctbx import crystal, sgtbx
 from cctbx.crystal_orientation import crystal_orientation
 from cctbx.sgtbx import change_of_basis_op, subgroups
 from cctbx.sgtbx.bravais_types import bravais_lattice
-from dxtbx.model import Crystal
+from dx2.model import Crystal
 from rstbx.dps_core.lepage import iotbx_converter
 from scitbx.array_family import flex
 
@@ -212,10 +212,10 @@ class SymmetryHandler(object):
         target symmetry.
 
         Args:
-            crystal_model (dxtbx.model.Crystal): The input crystal model to which to
+            crystal_model (dx2.model.Crystal): The input crystal model to which to
               apply symmetry constraints.
 
-        Returns: (dxtbx.model.Crystal, cctbx.sgtbx.change_of_basis_op):
+        Returns: (dx2.model.Crystal, cctbx.sgtbx.change_of_basis_op):
         The crystal model with symmetry constraints applied, and the change_of_basis_op
         that transforms the returned model to the user-specified target symmetry.
         """

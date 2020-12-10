@@ -6,7 +6,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from dxtbx.model import Crystal, Experiment
+from dx2.model import Crystal, Experiment
 
 from dials.algorithms.scaling.combine_intensities import (
     MultiDatasetIntensityCombiner,

@@ -5,7 +5,7 @@ import os
 import procrunner
 import pytest
 
-from dxtbx.serialize import load
+from dx2.serialize import load
 
 
 def test_modify_geometry(dials_regression, tmpdir):

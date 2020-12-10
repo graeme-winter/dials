@@ -10,8 +10,8 @@ import os
 import procrunner
 import pytest
 
-from dxtbx.model.experiment_list import ExperimentListFactory
-from dxtbx.serialize import load
+from dx2.model.experiment_list import ExperimentListFactory
+from dx2.serialize import load
 
 import dials.command_line.combine_experiments as combine_experiments
 from dials.array_family import flex

@@ -8,7 +8,7 @@ import pytest
 import six
 import six.moves.cPickle as pickle
 
-from dxtbx.model.experiment_list import ExperimentListFactory
+from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.array_family import flex
 

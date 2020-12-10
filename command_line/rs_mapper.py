@@ -48,7 +48,7 @@ rs_mapper
   ignore_mask = False
     .type = bool
     .optional = True
-    .short_caption = Ignore masks from dxtbx class
+    .short_caption = Ignore masks from dx2 class
 }
 """,
     process_includes=True,

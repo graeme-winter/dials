@@ -37,7 +37,7 @@ def scale_down_array_py(image, scale_factor):
 def read_image_to_flex_array(in_image):
     """Looks like this works *only* for CBF images from a Pilatus detector;
     oh well - should still do something useful."""
-    from dxtbx import load
+    from dx2 import load
 
     assert os.path.exists(in_image)
 

@@ -28,7 +28,7 @@ def get_flex_image(
     # functions from iotbx.detectors.detectorbase.  XXX This may turn
     # out to be generally useful (see
     # e.g. rstbx.viewer.create_flex_image()), but where to place it?
-    # dxtbx Format class?
+    # dx2 Format class?
     typehash = str(data.__class__)
     if typehash.find("int") >= 0:
         from iotbx.detectors import FlexImage
@@ -57,7 +57,7 @@ def get_flex_image_multipanel(
 ):
     # From xfel.cftbx.cspad_detector.readHeader() and
     # xfel.cftbx.cspad_detector.get_flex_image().  XXX Is it possible to
-    # merge this with get_flex_image() above?  XXX Move to dxtbx Format
+    # merge this with get_flex_image() above?  XXX Move to dx2 Format
     # class (or a superclass for multipanel images)?
 
     from iotbx.detectors import generic_flex_image
@@ -82,7 +82,7 @@ def get_flex_image_multipanel(
     )
 
     # Assert that all saturated values are equal and not None.  While
-    # dxtbx records a separated trusted_range for each panel,
+    # dx2 records a separated trusted_range for each panel,
     # generic_flex_image supports only accepts a single common value for
     # the saturation.
     saturation = None

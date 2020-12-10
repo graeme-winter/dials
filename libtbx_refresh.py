@@ -6,10 +6,10 @@ import dials.precommitbx.nagger
 
 libtbx.pkg_utils.define_entry_points(
     {
-        "dxtbx.profile_model": [
+        "dx2.profile_model": [
             "gaussian_rs = dials.extensions.gaussian_rs_profile_model_ext:GaussianRSProfileModelExt"
         ],
-        "dxtbx.scaling_model_ext": [
+        "dx2.scaling_model_ext": [
             "physical = dials.algorithms.scaling.model.model:PhysicalScalingModel",
             "KB = dials.algorithms.scaling.model.model:KBScalingModel",
             "array = dials.algorithms.scaling.model.model:ArrayScalingModel",
