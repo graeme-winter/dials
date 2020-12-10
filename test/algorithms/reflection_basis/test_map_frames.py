@@ -1,9 +1,8 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 import random
 
 from dx2.serialize import load
+
 from scitbx import matrix
 from scitbx.array_family import flex
 

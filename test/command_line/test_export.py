@@ -1,15 +1,13 @@
-from __future__ import absolute_import, division, print_function
-
 import json
 import os
 
 import procrunner
 import pytest
-
-from cctbx import uctbx
 from dx2.model import ExperimentList
 from dx2.serialize import load
 from dx2.serialize.load import _decode_dict
+
+from cctbx import uctbx
 from iotbx import mtz
 
 from dials.array_family import flex

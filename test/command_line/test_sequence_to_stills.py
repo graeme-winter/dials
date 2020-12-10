@@ -1,9 +1,6 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
 import procrunner
-
 from dx2.model.experiment_list import ExperimentListFactory
 
 

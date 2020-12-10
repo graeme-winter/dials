@@ -1,16 +1,15 @@
 """Refiner is the refinement module public interface. RefinerFactory is
 what should usually be used to construct a Refiner."""
 
-from __future__ import absolute_import, division, print_function
 
 import copy
 import logging
 import math
 
 import psutil
+from dx2.model.experiment_list import ExperimentList
 
 import libtbx
-from dx2.model.experiment_list import ExperimentList
 from libtbx.phil import parse
 
 import dials.util
@@ -224,7 +223,7 @@ def _trim_scans_to_observations(experiments, reflections):
     return experiments
 
 
-class RefinerFactory(object):
+class RefinerFactory:
     """Factory class to create refiners"""
 
     @staticmethod
@@ -446,7 +445,7 @@ class RefinerFactory(object):
         ndim = target.dim
         nref = len(refman.get_matches())
         logger.info(
-            "There are {0} parameters to refine against {1} reflections in {2} dimensions".format(
+            "There are {} parameters to refine against {} reflections in {} dimensions".format(
                 nparam, nref, ndim
             )
         )
@@ -635,7 +634,7 @@ class RefinerFactory(object):
                 engine.set_nproc(nproc)
             except NotImplementedError:
                 logger.warning(
-                    "Could not set nproc={0} for refinement engine of type {1}".format(
+                    "Could not set nproc={} for refinement engine of type {}".format(
                         nproc, options.engine
                     )
                 )
@@ -669,7 +668,7 @@ class RefinerFactory(object):
         return target
 
 
-class Refiner(object):
+class Refiner:
     """Public interface for performing DIALS refinement.
 
     Public methods:

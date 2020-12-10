@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 import random
 
@@ -258,7 +256,7 @@ def test_z_index():
 
 
 def test_pickle():
-    import six.moves.cPickle as pickle
+    import pickle
 
     from dials.algorithms.profile_model.modeller import CircleSampler
 

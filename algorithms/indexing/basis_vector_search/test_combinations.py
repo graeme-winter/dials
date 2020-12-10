@@ -1,10 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import copy
+
+from dx2.model import Crystal
 
 import scitbx.matrix
 from cctbx import sgtbx
-from dx2.model import Crystal
 from scitbx.math import euler_angles_as_matrix
 
 from dials.algorithms.indexing.symmetry import find_matching_symmetry

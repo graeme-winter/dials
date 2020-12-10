@@ -1,10 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 import random
 import sys
 
-import xfel.clustering.cluster
 from dx2.command_line.image_average import splitit
 from dx2.datablock import BeamDiff, DetectorDiff, GoniometerDiff
 from dx2.model.experiment_list import (
@@ -14,6 +11,8 @@ from dx2.model.experiment_list import (
     ExperimentList,
     GoniometerComparison,
 )
+
+import xfel.clustering.cluster
 from libtbx.phil import parse
 from scitbx import matrix
 from xfel.clustering.cluster_groups import unit_cell_info
@@ -214,7 +213,7 @@ class ComparisonError(Exception):
     pass
 
 
-class CombineWithReference(object):
+class CombineWithReference:
     def __init__(
         self,
         beam=None,
@@ -338,7 +337,7 @@ class CombineWithReference(object):
         )
 
 
-class Cluster(object):
+class Cluster:
     def __init__(
         self, experiments, reflections, dendrogram=False, threshold=1000, n_max=None
     ):
@@ -369,7 +368,7 @@ class Cluster(object):
             plt.show()
 
 
-class Script(object):
+class Script:
     def __init__(self):
         """Initialise the script."""
         # The script usage
@@ -423,32 +422,32 @@ class Script(object):
             try:
                 ref_beam = flat_exps[ref_beam].beam
             except IndexError:
-                sys.exit("{} is not a valid experiment ID".format(ref_beam))
+                sys.exit(f"{ref_beam} is not a valid experiment ID")
 
         if ref_goniometer is not None:
             try:
                 ref_goniometer = flat_exps[ref_goniometer].goniometer
             except IndexError:
-                sys.exit("{} is not a valid experiment ID".format(ref_goniometer))
+                sys.exit(f"{ref_goniometer} is not a valid experiment ID")
 
         if ref_scan is not None:
             try:
                 ref_scan = flat_exps[ref_scan].scan
             except IndexError:
-                sys.exit("{} is not a valid experiment ID".format(ref_scan))
+                sys.exit(f"{ref_scan} is not a valid experiment ID")
 
         if ref_crystal is not None:
             try:
                 ref_crystal = flat_exps[ref_crystal].crystal
             except IndexError:
-                sys.exit("{} is not a valid experiment ID".format(ref_crystal))
+                sys.exit(f"{ref_crystal} is not a valid experiment ID")
 
         if ref_detector is not None:
             assert not params.reference_from_experiment.average_detector
             try:
                 ref_detector = flat_exps[ref_detector].detector
             except IndexError:
-                sys.exit("{} is not a valid experiment ID".format(ref_detector))
+                sys.exit(f"{ref_detector} is not a valid experiment ID")
         elif params.reference_from_experiment.average_detector:
             # Average all of the detectors together
 
@@ -564,7 +563,7 @@ class Script(object):
             and skipped_expts_min_refl > 0
         ):
             print(
-                "Removed {0} experiments with fewer than {1} reflections".format(
+                "Removed {} experiments with fewer than {} reflections".format(
                     skipped_expts_min_refl, params.output.min_reflections_per_experiment
                 )
             )
@@ -573,7 +572,7 @@ class Script(object):
             and skipped_expts_max_refl > 0
         ):
             print(
-                "Removed {0} experiments with more than {1} reflections".format(
+                "Removed {} experiments with more than {} reflections".format(
                     skipped_expts_max_refl, params.output.max_reflections_per_experiment
                 )
             )
@@ -614,7 +613,7 @@ class Script(object):
                         subset_refls.extend(refls)
                         n_picked += 1
                 print(
-                    "Selecting a random subset of {0} experiments out of {1} total.".format(
+                    "Selecting a random subset of {} experiments out of {} total.".format(
                         params.output.n_subset, len(experiments)
                     )
                 )
@@ -642,7 +641,7 @@ class Script(object):
                         refls["id"] = flex.int(len(refls), expt_id)
                         subset_refls.extend(refls)
                 print(
-                    "Selecting a subset of {0} experiments with highest number of reflections out of {1} total.".format(
+                    "Selecting a subset of {} experiments with highest number of reflections out of {} total.".format(
                         params.output.n_subset, len(experiments)
                     )
                 )
@@ -792,9 +791,9 @@ class Script(object):
     def _save_output(self, experiments, reflections, exp_name, refl_name):
         # save output
 
-        print("Saving combined experiments to {}".format(exp_name))
+        print(f"Saving combined experiments to {exp_name}")
         experiments.as_file(exp_name)
-        print("Saving combined reflections to {}".format(refl_name))
+        print(f"Saving combined reflections to {refl_name}")
         reflections.as_file(refl_name)
 
 

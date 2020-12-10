@@ -1,7 +1,3 @@
-# coding: utf-8
-
-from __future__ import absolute_import, division, print_function
-
 """
 Examine the distribution of diffraction spot intensities.
 
@@ -19,16 +15,16 @@ https://www.itl.nist.gov/div898/handbook/eda/section3/normprpl.htm).
 import logging
 
 import scipy.stats
+from dx2.model import ExperimentList
 
 from cctbx import miller
-from dx2.model import ExperimentList
 
 from dials.array_family import flex
 
 log = logging.getLogger("dials.util.intensity_explorer")
 
 
-class IntensityDist(object):
+class IntensityDist:
     def __init__(
         self,
         rtable,
@@ -309,7 +305,7 @@ class IntensityDist(object):
             except KeyError:
                 uncertainty_value = flex.sqrt(rtable["intensity.sum.variance"])
                 log.warn(
-                    u"""Weighted variances haven't been calculated,
+                    """Weighted variances haven't been calculated,
       be sure to specify calculate_variances=True to use them.
       Defaulting to measured σ values as a measure of uncertainty instead."""
                 )

@@ -1,14 +1,14 @@
 # DIALS_ENABLE_COMMAND_LINE_COMPLETION
 
-from __future__ import absolute_import, division, print_function
 
 import concurrent.futures
 import copy
 import logging
 import sys
 
-import iotbx.phil
 from dx2.model.experiment_list import ExperimentList
+
+import iotbx.phil
 
 from dials.algorithms.indexing import DialsIndexError, indexer
 from dials.array_family import flex

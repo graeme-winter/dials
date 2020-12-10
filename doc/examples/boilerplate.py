@@ -5,17 +5,16 @@ This can double as a helpful message which explains how the program is run.
 """
 
 # Always include a __future__ import if backward compatibility with Python 2 is intended
-from __future__ import absolute_import, division, print_function
 
 import logging
 import sys
 
-# We need to parse command-line arguments to PHIL scopes.
-import libtbx.phil
-
 # Information about the experiment geometry and meta-data are recorded in
 # dx2.model.Experiment objects, collated in ExperimentList objects.
 from dx2.model import ExperimentList
+
+# We need to parse command-line arguments to PHIL scopes.
+import libtbx.phil
 
 # All command-line DIALS programs should run with dials.util.show_mail_handle_errors.
 import dials.util

@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import sys
 from math import pi
 
 import pytest
-
 from dx2.model.experiment_list import Experiment, ExperimentList
+
 from scitbx.array_family import flex
 
 from dials.algorithms.refinement.parameterisation.scan_varying_beam_parameters import (
@@ -30,9 +28,10 @@ from dials.algorithms.refinement.prediction.managed_predictors import (
 )
 
 
-class _Test(object):
+class _Test:
     def create_models(self, cmdline_overrides=None):
         from dx2.model import ScanFactory
+
         from libtbx.phil import parse
 
         from dials.test.algorithms.refinement.setup_geometry import Extract

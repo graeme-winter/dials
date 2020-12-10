@@ -1,14 +1,13 @@
-from __future__ import absolute_import, division, print_function
-
 import copy
 import datetime
 import logging
 import math
 import sys
 
+from dx2.model.experiment_list import Experiment, ExperimentList
+
 import iotbx.cif.model
 from cctbx import miller, sgtbx
-from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from libtbx.utils import format_float_with_standard_uncertainty
 
@@ -115,7 +114,7 @@ phil_scope = parse(
 working_phil = phil_scope.fetch()
 
 
-class Script(object):
+class Script:
     """A class for running the script."""
 
     def __init__(self):
@@ -189,7 +188,7 @@ class Script(object):
         reflections = reflections.select(mask)
 
         logger.info(
-            "{0} out of {1} reflections remain after filtering to keep only strong"
+            "{} out of {} reflections remain after filtering to keep only strong"
             " and integrated centroids".format(len(reflections), orig_len)
         )
         return reflections
@@ -470,7 +469,7 @@ class Script(object):
 
         # Combine crystals?
         if params.refinement.combine_crystal_models and len(experiments) > 1:
-            logger.info("Combining {0} crystal models".format(len(experiments)))
+            logger.info("Combining {} crystal models".format(len(experiments)))
             experiments = self.combine_crystals(experiments)
 
         # Filter integrated centroids?
@@ -499,7 +498,7 @@ class Script(object):
         if nexp == 1:
             logger.info("Performing refinement of a single Experiment...")
         else:
-            logger.info("Performing refinement of {} Experiments...".format(nexp))
+            logger.info(f"Performing refinement of {nexp} Experiments...")
         refiner.run()
 
         # get the refined experiments
@@ -525,9 +524,7 @@ class Script(object):
 
         # Save the refined experiments to file
         output_experiments_filename = params.output.experiments
-        logger.info(
-            "Saving refined experiments to {}".format(output_experiments_filename)
-        )
+        logger.info(f"Saving refined experiments to {output_experiments_filename}")
         experiments.as_file(output_experiments_filename)
 
         # Create correlation plots

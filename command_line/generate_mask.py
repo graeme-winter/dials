@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 Mask images to remove unwanted pixels.
 
@@ -18,17 +17,16 @@ Examples::
   dials.generate_mask models.expt d_max=2.00
 """
 
-from __future__ import absolute_import, division, print_function
 
 import logging
 import os.path
+import pickle
 from typing import List, Optional, Tuple
 
-import six.moves.cPickle as pickle
-
-import libtbx.phil as phil
 from dx2.format.image import ImageBool
 from dx2.model.experiment_list import ExperimentList
+
+import libtbx.phil as phil
 from scitbx.array_family import flex
 
 import dials.util

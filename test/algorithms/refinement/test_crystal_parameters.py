@@ -1,8 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
 from math import pi
 
 from dx2.model import Crystal
+
 from rstbx.symmetry.constraints.parameter_reduction import symmetrize_reduce_enlarge
 from scitbx import matrix
 

@@ -1,11 +1,9 @@
 """Simulate a rotation dataset with a smoothly-varying beam position for
 refinement testing. Script based on tst_nanoBragg_basic.py"""
 
-from __future__ import absolute_import, division, print_function
 
 import math
 
-from cctbx.eltbx import henke
 from dx2.model import (
     BeamFactory,
     Crystal,
@@ -13,6 +11,8 @@ from dx2.model import (
     GoniometerFactory,
     ScanFactory,
 )
+
+from cctbx.eltbx import henke
 from iotbx import pdb
 from scitbx import matrix
 
@@ -28,7 +28,7 @@ END
 """
 
 
-class Simulation(object):
+class Simulation:
     def __init__(self, override_fdp=None):
 
         # Set up detector

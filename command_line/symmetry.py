@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import collections
 import copy
 import json
@@ -8,11 +6,12 @@ import math
 import random
 import sys
 
+from dx2.model import ExperimentList
+
 import iotbx.phil
 from cctbx import sgtbx, uctbx
 from cctbx.sgtbx.bravais_types import bravais_lattice
 from cctbx.sgtbx.lattice_symmetry import metric_subgroups
-from dx2.model import ExperimentList
 from libtbx import Auto
 
 import dials.util

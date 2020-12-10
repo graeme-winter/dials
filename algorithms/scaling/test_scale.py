@@ -1,22 +1,19 @@
-# coding: utf-8
-
 """
 Test the command line script dials.scale, for successful completion.
 """
 
-from __future__ import absolute_import, division, print_function
 
 import json
 
 import procrunner
 import pytest
+from dx2.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
+from dx2.model.experiment_list import ExperimentList
+from dx2.serialize import load
 
 import iotbx.merging_statistics
 import iotbx.mtz
 from cctbx import uctbx
-from dx2.model import Beam, Crystal, Detector, Experiment, Goniometer, Scan
-from dx2.model.experiment_list import ExperimentList
-from dx2.serialize import load
 from libtbx import phil
 
 from dials.algorithms.scaling.algorithm import ScalingAlgorithm, prepare_input
@@ -863,7 +860,7 @@ def test_scale_cross_validate(dials_data, tmpdir, mode, parameter, parameter_val
 
 
 def test_few_reflections(dials_data):
-    u"""
+    """
     Test that dials.symmetry does something sensible if given few reflections.
 
     Use some example integrated data generated from two ten-image 1° sweeps.  These

@@ -3,13 +3,12 @@ Test the output of targeted scaling - by calling the scale_against_target
 scaling_library function and by directly invoking the perform method scaling
 of a TargetScaler.
 """
-from __future__ import absolute_import, division, print_function
 
 from math import log
 
 import pytest
-
 from dx2.model import Crystal, Experiment, ExperimentList
+
 from libtbx import phil
 
 from dials.algorithms.scaling.model.model import KBScalingModel

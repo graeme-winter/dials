@@ -1,16 +1,12 @@
-# coding: utf-8
-
-from __future__ import absolute_import, division, print_function
-
 import logging
 import math
 
 import pkg_resources
+from dx2.model import ExperimentList, ImageSequence
 
 import iotbx.phil
 import libtbx
 from cctbx import sgtbx
-from dx2.model import ExperimentList, ImageSequence
 
 import dials.util
 from dials.algorithms.indexing import (
@@ -300,7 +296,7 @@ indexing {
 phil_scope = iotbx.phil.parse(phil_str, process_includes=True)
 
 
-class Indexer(object):
+class Indexer:
     def __init__(self, reflections, experiments, params=None):
         self.reflections = reflections
         self.experiments = experiments

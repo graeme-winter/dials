@@ -1,12 +1,10 @@
-from __future__ import absolute_import, division, print_function
-
 import json
 import os
 
 import pytest
+from dx2.serialize import load
 
 from cctbx import sgtbx, uctbx
-from dx2.serialize import load
 
 from dials.command_line import refine_bravais_settings
 

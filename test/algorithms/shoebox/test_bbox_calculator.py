@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 import random
 
 import pytest
-
 from dx2.serialize import load
+
 from scitbx import matrix
 
 from dials.algorithms.profile_model.gaussian_rs import (

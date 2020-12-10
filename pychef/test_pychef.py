@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import pytest
+from dx2.model import Experiment, ExperimentList, Scan
 
 import iotbx.mtz
 from cctbx import sgtbx
 from cctbx.array_family import flex
-from dx2.model import Experiment, ExperimentList, Scan
 
 import dials.pychef
 

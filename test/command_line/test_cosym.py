@@ -1,12 +1,10 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
 import procrunner
 import pytest
+from dx2.serialize import load
 
 from cctbx import sgtbx, uctbx
-from dx2.serialize import load
 
 from dials.algorithms.symmetry.cosym._generate_test_data import (
     generate_experiments_reflections,

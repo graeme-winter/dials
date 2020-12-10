@@ -1,15 +1,13 @@
-from __future__ import absolute_import, division, print_function
-
 import itertools
 import logging
 import math
+from io import StringIO
 
 import pkg_resources
-from six.moves import cStringIO as StringIO
+from dx2.model.experiment_list import Experiment, ExperimentList
 
 import libtbx.phil
 import scitbx.matrix
-from dx2.model.experiment_list import Experiment, ExperimentList
 from scitbx.array_family import flex
 
 from dials.algorithms.indexing import indexer
@@ -109,7 +107,7 @@ basis_vector_search_phil_scope.adopt_scope(
 
 class LatticeSearch(indexer.Indexer):
     def __init__(self, reflections, experiments, params=None):
-        super(LatticeSearch, self).__init__(reflections, experiments, params)
+        super().__init__(reflections, experiments, params)
 
         strategy_class = None
         for entry_point in pkg_resources.iter_entry_points(
@@ -297,7 +295,7 @@ class LatticeSearch(indexer.Indexer):
 
 class BasisVectorSearch(LatticeSearch):
     def __init__(self, reflections, experiments, params=None):
-        super(BasisVectorSearch, self).__init__(reflections, experiments, params)
+        super().__init__(reflections, experiments, params)
 
         strategy_class = None
         for entry_point in pkg_resources.iter_entry_points(
@@ -400,7 +398,7 @@ class BasisVectorSearch(LatticeSearch):
 
         logger.debug("Candidate basis vectors:")
         for i, v in enumerate(vectors):
-            logger.debug("%s %s" % (i, v.length()))  # , vector_heights[i]
+            logger.debug(f"{i} {v.length()}")  # , vector_heights[i]
 
         if self.params.debug:
             # print a table of the angles between each pair of vectors

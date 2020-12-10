@@ -1,8 +1,4 @@
-from __future__ import absolute_import, division, print_function
-
 import collections
-
-import six
 
 from dials.array_family import flex
 from dials.array_family.flex import Binner
@@ -180,7 +176,7 @@ def generate_integration_report(experiment, reflections, n_resolution_bins=20):
 
     def select(data, indices):
         # Select rows from columns
-        result = {key: value.select(indices) for key, value in six.iteritems(data)}
+        result = {key: value.select(indices) for key, value in data.items()}
         return result
 
     # Check the required columns are there
@@ -307,7 +303,7 @@ class IntegrationReport(Report):
         :param reflections: The reflection table
         """
         # Initialise the report class
-        super(IntegrationReport, self).__init__()
+        super().__init__()
 
         # Split the tables by experiment id
         tables = reflections.split_by_experiment_id()
@@ -454,7 +450,7 @@ class ProfileModelReport(Report):
         :param reflections: The reflection table
         """
         # Initialise the report class
-        super(ProfileModelReport, self).__init__()
+        super().__init__()
 
         # Create the table
         table = Table()
@@ -517,7 +513,7 @@ class ProfileValidationReport(Report):
         :param reflections: The reflection table
         """
         # Initialise the report class
-        super(ProfileValidationReport, self).__init__()
+        super().__init__()
 
         # Create the table
         table = Table()

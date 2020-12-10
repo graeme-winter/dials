@@ -1,16 +1,15 @@
-from __future__ import absolute_import, division, print_function
-
 import logging
 import math
 import warnings
 from collections import namedtuple
 
-from cctbx import crystal
 from dx2.masking import (
     mask_untrusted_circle,
     mask_untrusted_polygon,
     mask_untrusted_rectangle,
 )
+
+from cctbx import crystal
 from iotbx.phil import parse
 
 from dials.array_family import flex
@@ -111,7 +110,7 @@ def lru_equality_cache(maxsize=10):
     """
 
     def _decorator(f):
-        class Scope(object):
+        class Scope:
             pass
 
         cache_data = Scope()
@@ -192,7 +191,7 @@ def _apply_resolution_mask(mask, beam, panel, *args):
     _get_resolution_masker(beam, panel).apply(mask, *args)
 
 
-class MaskGenerator(object):
+class MaskGenerator:
     """Generate a mask."""
 
     def __init__(self, params):

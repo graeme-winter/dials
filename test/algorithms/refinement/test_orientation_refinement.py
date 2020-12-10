@@ -9,7 +9,6 @@ cctbx.python tst_orientation_refinement.py \
 "random_seed=3; engine=LBFGScurvs"
 """
 
-from __future__ import absolute_import, division, print_function
 
 import sys
 
@@ -17,14 +16,14 @@ import sys
 def test(args=[]):
     from math import pi
 
+    # We will set up a mock scan and a mock experiment list
+    from dx2.model import ScanFactory
+    from dx2.model.experiment_list import Experiment, ExperimentList
+
     from cctbx.sgtbx import space_group, space_group_symbols
 
     # Symmetry constrained parameterisation for the unit cell
     from cctbx.uctbx import unit_cell
-
-    # We will set up a mock scan and a mock experiment list
-    from dx2.model import ScanFactory
-    from dx2.model.experiment_list import Experiment, ExperimentList
     from libtbx.phil import parse
     from libtbx.test_utils import approx_equal
     from rstbx.symmetry.constraints.parameter_reduction import symmetrize_reduce_enlarge

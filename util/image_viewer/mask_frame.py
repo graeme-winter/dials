@@ -1,6 +1,5 @@
-from __future__ import absolute_import, division, print_function
+import pickle
 
-import six.moves.cPickle as pickle
 import wx
 from wx.lib.agw.floatspin import EVT_FLOATSPIN, FloatSpin
 
@@ -23,7 +22,7 @@ class FloatCtrl(_FloatCtrl):
 
 class MaskSettingsFrame(wx.MiniFrame):
     def __init__(self, *args, **kwds):
-        super(MaskSettingsFrame, self).__init__(*args, **kwds)
+        super().__init__(*args, **kwds)
         szr = wx.BoxSizer(wx.VERTICAL)
         self.phil_params = args[0].params
         panel = MaskSettingsPanel(self)
@@ -38,7 +37,7 @@ class MaskSettingsFrame(wx.MiniFrame):
 
 class MaskSettingsPanel(wx.Panel):
     def __init__(self, *args, **kwds):
-        super(MaskSettingsPanel, self).__init__(*args, **kwds)
+        super().__init__(*args, **kwds)
 
         self.params = args[0].phil_params
 
@@ -173,7 +172,7 @@ class MaskSettingsPanel(wx.Panel):
         grid.Add(wx.StaticText(self, -1, ""), 0, wx.EXPAND)
 
         for range_id, (d_min, d_max) in enumerate(self.params.masking.resolution_range):
-            grid.Add(wx.StaticText(self, -1, "%.2f-%.2f" % (d_min, d_max)))
+            grid.Add(wx.StaticText(self, -1, f"{d_min:.2f}-{d_max:.2f}"))
             btn = metallicbutton.MetallicButton(
                 parent=self,
                 label="delete",

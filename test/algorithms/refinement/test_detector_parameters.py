@@ -1,10 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import random
 import textwrap
 from math import cos, pi, sin, sqrt
 
 from dx2.model import BeamFactory, Detector, DetectorFactory, Panel
+
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 

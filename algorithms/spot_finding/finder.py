@@ -9,10 +9,11 @@ import pickle
 import warnings
 from typing import Iterable, Tuple
 
-import libtbx
 from dx2.format.image import ImageBool
 from dx2.imageset import ImageSequence, ImageSet
 from dx2.model import ExperimentList
+
+import libtbx
 
 from dials.array_family import flex
 from dials.model.data import PixelList, PixelListLabeller
@@ -463,7 +464,7 @@ class ExtractSpots:
         mp_njobs = self.mp_njobs
         if mp_nproc is libtbx.Auto:
             mp_nproc = available_cores()
-            logger.info("Setting nproc={}".format(mp_nproc))
+            logger.info(f"Setting nproc={mp_nproc}")
         if os.name == "nt" and (mp_nproc > 1 or mp_njobs > 1):
             logger.warning(_no_multiprocessing_on_windows)
             mp_nproc = 1

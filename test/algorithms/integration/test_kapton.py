@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
 import pytest
+from dx2.model.experiment_list import ExperimentListFactory
 
 import libtbx
-from dx2.model.experiment_list import ExperimentListFactory
 from libtbx.phil import parse
 
 from dials.array_family import flex

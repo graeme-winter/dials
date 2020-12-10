@@ -1,9 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import concurrent.futures
 import copy
 import logging
 import math
+
+from dx2.model import Crystal
 
 import libtbx
 import libtbx.phil
@@ -11,7 +11,6 @@ import scitbx.matrix
 from cctbx import crystal, miller, sgtbx
 from cctbx.crystal_orientation import crystal_orientation
 from cctbx.sgtbx import bravais_types
-from dx2.model import Crystal
 from libtbx.introspection import number_of_processors
 from rstbx.dps_core.lepage import iotbx_converter
 from rstbx.symmetry.subgroup import MetricSubgroup
@@ -135,7 +134,7 @@ class RefinedSettingsList(list):
             P = uc.parameters()
             min_max_cc_str = "-/-"
             if item.min_cc is not None and item.max_cc is not None:
-                min_max_cc_str = "%.3f/%.3f" % (item.min_cc, item.max_cc)
+                min_max_cc_str = f"{item.min_cc:.3f}/{item.max_cc:.3f}"
             if item.recommended:
                 status = "*"
             else:

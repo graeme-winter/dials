@@ -1,12 +1,11 @@
-from __future__ import absolute_import, division, print_function
-
 import collections
 import copy
 import logging
 import math
 
-import libtbx
 from dx2.model import Crystal
+
+import libtbx
 from scitbx import matrix
 from scitbx.array_family import flex
 
@@ -74,7 +73,7 @@ def filter_doubled_cell(solutions):
     return accepted_solutions
 
 
-class ModelRank(object):
+class ModelRank:
     def __init__(self):
         self.all_solutions = []
 
@@ -100,7 +99,7 @@ class ModelRankFilter(ModelRank):
         volume_cutoff=1.25,
         n_indexed_cutoff=0.9,
     ):
-        super(ModelRankFilter, self).__init__()
+        super().__init__()
         self.check_doubled_cell = check_doubled_cell
         self.likelihood_cutoff = likelihood_cutoff
         self.volume_cutoff = volume_cutoff
@@ -108,11 +107,11 @@ class ModelRankFilter(ModelRank):
         self.filtered_solutions = []
 
     def append(self, item):
-        super(ModelRankFilter, self).append(item)
+        super().append(item)
         self.update_analysis()
 
     def extend(self, items):
-        super(ModelRankFilter, self).extend(items)
+        super().extend(items)
         self.update_analysis()
 
     def __len__(self):
@@ -203,7 +202,7 @@ class ModelRankFilter(ModelRank):
 
 class ModelRankWeighted(ModelRank):
     def __init__(self, power=2, volume_weight=1, n_indexed_weight=1, rmsd_weight=1):
-        super(ModelRankWeighted, self).__init__()
+        super().__init__()
         self.volume_weight = volume_weight
         self.n_indexed_weight = n_indexed_weight
         self.rmsd_weight = rmsd_weight
@@ -301,7 +300,7 @@ class ModelRankWeighted(ModelRank):
         return dials.util.tabulate(rows, headers="firstrow")
 
 
-class Strategy(object):
+class Strategy:
     def evaluate(self, experiments, reflections):
         raise NotImplementedError()
 

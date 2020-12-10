@@ -1,9 +1,8 @@
-from __future__ import absolute_import, division, print_function
+import pickle
 
 import pytest
-import six.moves.cPickle as pickle
-
 from dx2.model import ExperimentList
+
 from libtbx import phil
 
 from dials.command_line.dials_import import Script as ImportScript

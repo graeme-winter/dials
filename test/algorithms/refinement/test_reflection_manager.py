@@ -1,9 +1,6 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 
 import pytest
-
 from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.algorithms.refinement.reflection_manager import ReflectionManager

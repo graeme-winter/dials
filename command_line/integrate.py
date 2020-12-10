@@ -1,4 +1,3 @@
-# coding: utf-8
 # DIALS_ENABLE_COMMAND_LINE_COMPLETION
 """
 This program is used to integrate the reflections on the diffraction images. It
@@ -20,13 +19,13 @@ Examples::
   dials.integrate models.expt refined.refl background.algorithm=glm
 """
 
-from __future__ import absolute_import, division, print_function
 
 import logging
 import math
 import sys
 
 from dx2.model.experiment_list import Experiment, ExperimentList
+
 from libtbx.phil import parse
 
 import dials.util.log

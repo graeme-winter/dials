@@ -5,17 +5,16 @@ single panel detector, and a geometrically identical 3x3 panel detector,
 ensuring the results are the same.
 """
 
-from __future__ import absolute_import, division, print_function
 
 from collections import namedtuple
 from math import pi
 
 import pytest
+from dx2.model import Detector, Panel, ScanFactory
+from dx2.model.experiment_list import Experiment, ExperimentList
 
 from cctbx.sgtbx import space_group, space_group_symbols
 from cctbx.uctbx import unit_cell
-from dx2.model import Detector, Panel, ScanFactory
-from dx2.model.experiment_list import Experiment, ExperimentList
 from libtbx.phil import parse
 from libtbx.test_utils import approx_equal
 from rstbx.symmetry.constraints.parameter_reduction import symmetrize_reduce_enlarge

@@ -1,10 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
 import procrunner
 import pytest
-
 from dx2.serialize import load
 
 
@@ -367,7 +364,7 @@ def test_import_still_sequence_as_experiments(dials_data, tmpdir):
     for exp in imported_exp:
         assert exp.identifier != ""
 
-    iset = set(exp.imageset for exp in imported_exp)
+    iset = {exp.imageset for exp in imported_exp}
     assert len(iset) == 1
 
     # verify scans, goniometers kept too
@@ -393,7 +390,7 @@ def test_import_still_sequence_as_experiments_subset(dials_data, tmpdir):
     for exp in imported_exp:
         assert exp.identifier != ""
 
-    iset = set(exp.imageset for exp in imported_exp)
+    iset = {exp.imageset for exp in imported_exp}
     assert len(iset) == 1
 
     # verify scans, goniometers kept too
@@ -418,7 +415,7 @@ def test_import_still_sequence_as_experiments_split_subset(dials_data, tmpdir):
     for exp in imported_exp:
         assert exp.identifier != ""
 
-    iset = set(exp.imageset for exp in imported_exp)
+    iset = {exp.imageset for exp in imported_exp}
     assert len(iset) == 2
 
 

@@ -1,12 +1,10 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 import random
 import textwrap
 
 import pytest
-
 from dx2.model import Beam, Crystal, Goniometer
+
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 from scitbx.array_family import flex
@@ -192,7 +190,7 @@ class _TestDetectorModel(ScanVaryingDetectorParameterisationSinglePanel):
         return ScanVaryingDetectorParameterisationSinglePanel.get_state(self)
 
 
-class _TestScanVaryingModelParameterisation(object):
+class _TestScanVaryingModelParameterisation:
     def __init__(self):
         # Let's say we have a scan of 100 images
         self.image_range = (1, 100)

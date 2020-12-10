@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import logging
 
 import iotbx.phil
@@ -41,7 +39,7 @@ help_message = """
 
 @dials.util.show_mail_handle_errors()
 def run(args=None):
-    import six.moves.cPickle as pickle
+    import pickle
 
     from dials.util import Sorry, log
 

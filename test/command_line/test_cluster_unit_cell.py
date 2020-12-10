@@ -1,13 +1,11 @@
-from __future__ import absolute_import, division, print_function
-
 import glob
 import os
 
 import procrunner
 import pytest
+from dx2.model.experiment_list import ExperimentList, ExperimentListFactory
 
 from cctbx import crystal
-from dx2.model.experiment_list import ExperimentList, ExperimentListFactory
 
 from dials.command_line import cluster_unit_cell
 

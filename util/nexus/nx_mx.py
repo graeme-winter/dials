@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import collections
 import math
 from copy import deepcopy
@@ -635,8 +633,9 @@ def load_scan(entry):
 
 
 def load_crystal(entry):
-    from cctbx import uctbx
     from dx2.model import Crystal
+
+    from cctbx import uctbx
     from scitbx.array_family import flex
 
     # Get the sample

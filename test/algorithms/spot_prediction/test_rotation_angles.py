@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 import os
 
@@ -10,6 +8,7 @@ from scitbx import matrix
 
 def test(dials_regression, run_in_tmpdir):
     import dx2
+
     from iotbx.xds import integrate_hkl, xparm
     from rstbx.cftbx.coordinate_frame_converter import coordinate_frame_converter
 

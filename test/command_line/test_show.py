@@ -1,10 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 import shutil
 
 import procrunner
-
 from dx2.serialize import load
 
 from dials.command_line.show import model_connectivity, run

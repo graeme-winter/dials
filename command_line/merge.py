@@ -1,15 +1,13 @@
-# coding: utf-8
 """
 Command line script to allow merging and truncating of a dials dataset.
 """
-from __future__ import absolute_import, division, print_function
 
 import logging
 import sys
-
-from six.moves import cStringIO as StringIO
+from io import StringIO
 
 from dx2.model import ExperimentList
+
 from iotbx import phil
 
 from dials.algorithms.merging.merge import (

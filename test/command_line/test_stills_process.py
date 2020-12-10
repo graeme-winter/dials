@@ -1,13 +1,11 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
-import pytest
-
 import dx2
+import pytest
 from dx2.format.FormatCBFCspad import FormatCBFCspadInMemory
 from dx2.imageset import ImageSet, ImageSetData, MemReader
 from dx2.model.experiment_list import ExperimentListFactory
+
 from libtbx import easy_run
 from libtbx.phil import parse
 
@@ -138,7 +136,7 @@ def test_sacla_h5(dials_regression, run_in_tmpdir, use_mpi, in_memory=False):
             subset = table.select(table["id"] == expt_id)
             assert len(subset) in n_refls, (result_filename, expt_id, len(table))
         assert "id" in table
-        assert set(table["id"]) == set((0, 1, 2, 3))
+        assert set(table["id"]) == {0, 1, 2, 3}
 
     # large ranges to handle platform-specific differences
     test_refl_table(

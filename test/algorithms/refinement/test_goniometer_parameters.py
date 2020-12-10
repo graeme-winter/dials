@@ -1,10 +1,8 @@
-from __future__ import absolute_import, division, print_function
-
 import math
 
 import pytest
-
 from dx2.model import Goniometer
+
 from libtbx.test_utils import approx_equal
 from scitbx import matrix
 from scitbx.array_family import flex

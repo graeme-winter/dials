@@ -1,6 +1,5 @@
 # LIBTBX_SET_DISPATCHER_NAME cluster.dials.exec
 
-from __future__ import absolute_import, division, print_function
 
 import dials.util
 
@@ -32,11 +31,10 @@ def get_tid():
 
 @dials.util.show_mail_handle_errors()
 def run(_=None):
+    import pickle
     import traceback
     from os.path import exists, join
     from time import sleep
-
-    import six.moves.cPickle as pickle
 
     # Get the task id and the current working directory
     tid = get_tid()

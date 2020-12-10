@@ -1,10 +1,10 @@
 """Setup experimental geometry for refinement test cases"""
 
-from __future__ import absolute_import, division, print_function
 
 import random
 
 from dx2.model import BeamFactory, Crystal, DetectorFactory, GoniometerFactory
+
 from libtbx.phil import command_line, parse
 from scitbx import matrix
 
@@ -18,7 +18,7 @@ def random_vector_close_to(vector, sd=0.5):
     )
 
 
-class Extract(object):
+class Extract:
     """Parse and extract geometry model from PHIL"""
 
     def __init__(

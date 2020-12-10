@@ -2,13 +2,12 @@
 for scan-varying refinement. This exercises the issue originally flagged in
 https://github.com/dials/dials/issues/511"""
 
-from __future__ import absolute_import, division, print_function
 
 from math import pi
 
 import pytest
-
 from dx2.model.experiment_list import Experiment, ExperimentList
+
 from scitbx.array_family import flex
 
 from dials.algorithms.refinement.reflection_manager import BlockCalculator

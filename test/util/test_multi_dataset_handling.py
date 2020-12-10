@@ -1,10 +1,8 @@
 """
 Tests for dials.util.multi_dataset_handling functions
 """
-from __future__ import absolute_import, division, print_function
 
 import pytest
-
 from dx2.model import Experiment, ExperimentList
 
 from dials.array_family import flex

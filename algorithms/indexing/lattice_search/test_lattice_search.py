@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import py.path
 import pytest
-
-from cctbx import sgtbx, uctbx
 from dx2.imageset import ImageSet
 from dx2.serialize import load
+
+from cctbx import sgtbx, uctbx
 
 from dials.algorithms.indexing import lattice_search, stills_indexer
 from dials.array_family import flex

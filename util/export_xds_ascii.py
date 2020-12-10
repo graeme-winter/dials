@@ -1,10 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import copy
 import logging
 import os
 
 import dx2.model
+
 import libtbx.phil
 from cctbx.miller import map_to_asu
 from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
@@ -42,7 +41,7 @@ def export_xds_ascii(integrated_data, experiment_list, params, var_model=(1, 0))
         for i, experiment in enumerate(experiment_list):
             experiment_data = integrated_data.select(integrated_data["id"] == i)
             name, ext = os.path.splitext(params.xds_ascii.hklout)
-            filename = name + "_{}".format(i) + ext
+            filename = name + f"_{i}" + ext
             _export_experiment(filename, experiment_data, experiment, params, var_model)
 
 
@@ -195,7 +194,7 @@ def _export_experiment(filename, integrated_data, experiment, params, var_model=
                 "!X-RAY_WAVELENGTH= %f" % experiment.beam.get_wavelength(),
                 "!INCIDENT_BEAM_DIRECTION= %f %f %f" % beam.elems,
                 "!NX= %d NY= %d QX= %f QY= %f" % (nx, ny, qx, qy),
-                "!ORGX= %9.2f ORGY= %9.2f" % (orgx, orgy),
+                f"!ORGX= {orgx:9.2f} ORGY= {orgy:9.2f}",
                 "!DETECTOR_DISTANCE= %8.3f" % distance,
                 "!DIRECTION_OF_DETECTOR_X-AXIS= %9.5f %9.5f %9.5f" % fast.elems,
                 "!DIRECTION_OF_DETECTOR_Y-AXIS= %9.5f %9.5f %9.5f" % slow.elems,

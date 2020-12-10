@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import itertools
 import math
 import random
@@ -405,7 +403,7 @@ def main(params):
     underestimates = rlist.select(flex.size_t(underestimates))
     # now pickle these, perhaps
 
-    import six.moves.cPickle as pickle
+    import pickle
 
     if params.output.under:
         with open(params.output.under, "wb") as fh:

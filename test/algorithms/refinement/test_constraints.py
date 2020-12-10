@@ -2,12 +2,12 @@
 Tests for the constraints system used in refinement
 """
 
-from __future__ import absolute_import, division, print_function
 
 import os
 from copy import deepcopy
 
 from dx2.model.experiment_list import ExperimentListFactory
+
 from libtbx import easy_run
 from libtbx.test_utils import approx_equal
 from scitbx import sparse

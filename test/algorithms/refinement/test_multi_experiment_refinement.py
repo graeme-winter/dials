@@ -2,7 +2,6 @@
 A simple test of refinement using two crystals.
 """
 
-from __future__ import absolute_import, division, print_function
 
 import pytest
 
@@ -12,14 +11,14 @@ def test(args=[]):
     # Python and cctbx imports
     from math import pi
 
+    # We will set up a mock scan and a mock experiment list
+    from dx2.model import ScanFactory
+    from dx2.model.experiment_list import Experiment, ExperimentList
+
     from cctbx.sgtbx import space_group, space_group_symbols
 
     # Symmetry constrained parameterisation for the unit cell
     from cctbx.uctbx import unit_cell
-
-    # We will set up a mock scan and a mock experiment list
-    from dx2.model import ScanFactory
-    from dx2.model.experiment_list import Experiment, ExperimentList
     from libtbx.phil import parse
     from libtbx.test_utils import approx_equal
     from rstbx.symmetry.constraints.parameter_reduction import symmetrize_reduce_enlarge

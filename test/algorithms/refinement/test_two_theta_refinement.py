@@ -2,13 +2,13 @@
 Test refinement of a crystal unit cell using a two theta target.
 """
 
-from __future__ import absolute_import, division, print_function
 
 import os
 from copy import deepcopy
 from math import pi
 
 from dx2.model.experiment_list import Experiment, ExperimentList
+
 from libtbx.test_utils import approx_equal
 
 from dials.algorithms.refinement.two_theta_refiner import (

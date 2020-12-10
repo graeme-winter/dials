@@ -1,9 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
-import six
-from six.moves import cPickle as pickle
+import pickle
 
 from dx2.format.image import ImageBool
+
 from iotbx.phil import parse
 
 import dials.util
@@ -43,7 +41,7 @@ phil_scope = parse(
 )
 
 
-class Script(object):
+class Script:
     """A class to encapsulate the script."""
 
     def __init__(self):
@@ -87,10 +85,7 @@ class Script(object):
         for i, imageset in enumerate(imagesets):
             # Set the lookup
             with open(params.input.mask[i], "rb") as f:
-                if six.PY3:
-                    mask = pickle.load(f, encoding="bytes")
-                else:
-                    mask = pickle.load(f)
+                mask = pickle.load(f, encoding="bytes")
             imageset.external_lookup.mask.filename = params.input.mask[i]
             imageset.external_lookup.mask.data = ImageBool(mask)
 

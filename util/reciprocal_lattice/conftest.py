@@ -1,9 +1,6 @@
-from __future__ import absolute_import, division, print_function
-
 import os
 
 import pytest
-
 from dx2.serialize import load
 
 from dials.array_family import flex

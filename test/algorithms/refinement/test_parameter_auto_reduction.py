@@ -1,7 +1,4 @@
-from __future__ import absolute_import, division, print_function
-
 import pytest
-
 from dx2.model import Detector
 
 from dials.algorithms.refinement import DialsRefineConfigError

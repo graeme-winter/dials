@@ -1,11 +1,9 @@
-from __future__ import absolute_import, division, print_function
-
 import pytest
+from dx2.model import Crystal, Experiment, ExperimentList
 
 import scitbx.matrix
 from cctbx import sgtbx
 from cctbx.sgtbx import bravais_types
-from dx2.model import Crystal, Experiment, ExperimentList
 
 from dials.algorithms.indexing import assign_indices, non_primitive_basis
 from dials.array_family import flex

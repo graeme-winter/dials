@@ -7,14 +7,12 @@ but also that the command line program is functioning and that the output models
 have not changed format and so on.
 """
 
-from __future__ import absolute_import, division, print_function
 
 import os
 
 import procrunner
 import pytest
 from annlib_ext import AnnAdaptor
-
 from dx2.model.experiment_list import ExperimentListFactory
 
 from dials.algorithms.refinement.engine import Journal

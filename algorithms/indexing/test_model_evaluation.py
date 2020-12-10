@@ -1,14 +1,12 @@
-from __future__ import absolute_import, division, print_function
-
 import copy
 import functools
 import os
 
 import pytest
-
-from cctbx import sgtbx, uctbx
 from dx2.model import Crystal
 from dx2.serialize import load
+
+from cctbx import sgtbx, uctbx
 
 from dials.algorithms.indexing import model_evaluation
 from dials.algorithms.indexing.assign_indices import AssignIndicesGlobal

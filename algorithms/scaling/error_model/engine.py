@@ -105,7 +105,7 @@ class ErrorModelRegressionRefiner(SimpleLBFGS):
         return
 
     def run(self):
-        super(ErrorModelRegressionRefiner, self).run()
+        super().run()
         self.parameterisation.resolve_model_parameters()
 
     def prepare_for_step(self):
@@ -142,7 +142,7 @@ class ErrorModelRegressionRefiner(SimpleLBFGS):
         return f, g, None
 
 
-class ErrorModelRefinery(object):
+class ErrorModelRefinery:
 
     """Refiner for the basic error model."""
 

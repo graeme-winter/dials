@@ -1,19 +1,17 @@
 """Test analytical calculation of gradients of the target function versus finite
 difference calculations"""
 
-from __future__ import absolute_import, division, print_function
-
 
 def test(args=[]):
     # Python and cctbx imports
     import random
     from math import pi
 
-    from cctbx.sgtbx import space_group, space_group_symbols
-
     # We will set up a mock scan and a mock experiment list
     from dx2.model import ScanFactory
     from dx2.model.experiment_list import Experiment, ExperimentList
+
+    from cctbx.sgtbx import space_group, space_group_symbols
     from libtbx.phil import parse
     from libtbx.test_utils import approx_equal
     from scitbx import matrix

@@ -1,13 +1,10 @@
-# coding: utf-8
 # DIALS_ENABLE_COMMAND_LINE_COMPLETION
 
-from __future__ import absolute_import, division, print_function
 
 import copy
 import os
+import pickle
 import sys
-
-import six.moves.cPickle as pickle
 
 import iotbx.phil
 from cctbx import sgtbx

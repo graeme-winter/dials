@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import random
 
 
@@ -19,7 +17,7 @@ def test_pickle():
     assert pl.size() == size
     assert pl.frame() == sf
 
-    import six.moves.cPickle as pickle
+    import pickle
 
     obj = pickle.dumps(pl)
     pl2 = pickle.loads(obj)

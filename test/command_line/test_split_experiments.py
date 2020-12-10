@@ -1,10 +1,7 @@
-from __future__ import absolute_import, division, print_function
-
 """Tests for dials.split_experiments when experiment ids are set"""
 
 import procrunner
 import pytest
-
 from dx2.model import Beam, Experiment, ExperimentList
 from dx2.serialize import load
 

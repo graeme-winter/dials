@@ -1,9 +1,6 @@
-from __future__ import absolute_import, division, print_function
-
 import logging
+import pickle
 import sys
-
-import six.moves.cPickle as pickle
 
 from libtbx.phil import parse
 
@@ -92,7 +89,7 @@ phil_scope = parse(
 )
 
 
-class ImageGenerator(object):
+class ImageGenerator:
     """
     Generate diagnostic images
     """
@@ -189,7 +186,7 @@ class ImageGenerator(object):
         self._save_plot("polar model", filename, lambda m: m.polar_model, bounded=False)
 
 
-class Script(object):
+class Script:
     """A class for running the script."""
 
     def __init__(self):

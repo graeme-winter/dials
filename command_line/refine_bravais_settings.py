@@ -26,7 +26,6 @@ Examples::
   dials.refine_bravais_settings indexed.expt indexed.refl nproc=4
 """
 
-from __future__ import absolute_import, division, print_function
 
 import collections
 import json
@@ -34,10 +33,11 @@ import logging
 import os
 import sys
 
+from dx2.model import ExperimentList
+
 import libtbx.phil
 from cctbx import sgtbx
 from cctbx.sgtbx import bravais_types
-from dx2.model import ExperimentList
 
 import dials.util
 from dials.algorithms.indexing.bravais_settings import (

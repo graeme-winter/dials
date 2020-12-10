@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- mode: python; coding: utf-8; indent-tabs-mode: nil; python-indent: 4 -*-
 
 # Running bootstrap requires a minimum Python version of 2.7.
 
@@ -8,7 +7,6 @@
 # or
 # curl https://raw.githubusercontent.com/dials/dials/master/installer/bootstrap.py > bootstrap.py
 
-from __future__ import absolute_import, division, print_function
 
 import argparse
 import json
@@ -62,13 +60,11 @@ def install_miniconda(location):
     elif os.name == "nt":
         filename = "Miniconda3-latest-Windows-x86_64.exe"
     else:
-        raise NotImplementedError(
-            "Unsupported platform %s / %s" % (os.name, sys.platform)
-        )
+        raise NotImplementedError(f"Unsupported platform {os.name} / {sys.platform}")
     url = "https://repo.anaconda.com/miniconda/" + filename
     filename = os.path.join(location, filename)
 
-    print("Downloading {url}:".format(url=url), end=" ")
+    print(f"Downloading {url}:", end=" ")
     result = download_to_file(url, filename)
     if result in (0, -1):
         sys.exit("Miniconda download failed")
@@ -108,11 +104,11 @@ def install_conda(python):
         try:
             with open(environment_file) as f:
                 paths = f.readlines()
-        except IOError:
+        except OSError:
             paths = []
-        environments = set(
+        environments = {
             os.path.normpath(env.strip()) for env in paths if os.path.isdir(env.strip())
-        )
+        }
         env_dirs = (
             os.path.join(conda_base, "envs"),
             os.path.join(os.path.expanduser("~"), ".conda", "envs"),
@@ -167,12 +163,10 @@ environments exist and are working.
         "modules",
         "dials",
         ".conda-envs",
-        "{platform}.txt".format(platform=conda_platform),
+        f"{conda_platform}.txt",
     )
     if not os.path.isfile(filename):
-        raise RuntimeError(
-            "The file {filename} is not available".format(filename=filename)
-        )
+        raise RuntimeError(f"The file {filename} is not available")
 
     python_requirement = "conda-forge::python=%s.*" % python
 
@@ -271,7 +265,7 @@ channels:
 
 
 def run_command(command, workdir):
-    print("Running %s (in %s)" % (" ".join(command), workdir))
+    print("Running {} (in {})".format(" ".join(command), workdir))
     workdir = os.path.abspath(workdir)
     try:
         os.makedirs(workdir)
@@ -490,7 +484,7 @@ def unzip(archive, directory, trim_directory=0):
     """unzip a file into a directory."""
     if not zipfile.is_zipfile(archive):
         raise Exception(
-            "Cannot install %s: %s is not a valid .zip file" % (directory, archive)
+            f"Cannot install {directory}: {archive} is not a valid .zip file"
         )
     z = zipfile.ZipFile(archive, "r")
     for member in z.infolist():
@@ -500,7 +494,7 @@ def unzip(archive, directory, trim_directory=0):
             filename = os.path.normpath(filename)
             if "../" in filename:
                 raise Exception(
-                    "Archive %s contains invalid filename %s" % (archive, filename)
+                    f"Archive {archive} contains invalid filename {filename}"
                 )
             filename = os.path.join(directory, filename)
             upperdirs = os.path.dirname(filename)
@@ -525,7 +519,7 @@ def unzip(archive, directory, trim_directory=0):
 
 
 def set_git_repository_config_to_rebase(config):
-    with open(config, "r") as fh:
+    with open(config) as fh:
         cfg = fh.readlines()
 
     branch, remote, rebase = False, False, False
@@ -563,7 +557,7 @@ def git(module, git_available, ssh_available, reference_base, settings):
         if not git_available:
             return module, "WARNING", "Cannot update module, git command not found"
 
-        with open(os.path.join(destination, ".git", "HEAD"), "r") as fh:
+        with open(os.path.join(destination, ".git", "HEAD")) as fh:
             if fh.read(4) != "ref:":
                 return (
                     module,
@@ -612,7 +606,11 @@ def git(module, git_available, ssh_available, reference_base, settings):
             return module, "WARNING", "Cannot get git repository revision\n" + output
         output = output.split()
         if len(output) == 2:
-            return module, "OK", "Checked out revision %s (%s)" % (output[0], output[1])
+            return (
+                module,
+                "OK",
+                "Checked out revision {} ({})".format(output[0], output[1]),
+            )
         return module, "OK", "Checked out revision " + output[0].strip()
 
     try:
@@ -624,11 +622,11 @@ def git(module, git_available, ssh_available, reference_base, settings):
 
     if not git_available:
         # Fall back to downloading a static archive
-        url = "https://github.com/%s/archive/%s.zip" % (
+        url = "https://github.com/{}/archive/{}.zip".format(
             settings.get("effective-repository", settings.get("base-repository")),
             remote_branch,
         )
-        filename = os.path.join("modules", "%s-%s.zip" % (module, remote_branch))
+        filename = os.path.join("modules", f"{module}-{remote_branch}.zip")
         try:
             download_to_file(url, filename, quiet=True)
         except Exception:
@@ -744,7 +742,9 @@ def git(module, git_available, ssh_available, reference_base, settings):
                 "-B",
                 settings["branch-local"],
                 "--track",
-                "%s/%s" % ("upstream" if secondary_remote else "origin", remote_branch),
+                "{}/{}".format(
+                    "upstream" if secondary_remote else "origin", remote_branch
+                ),
             ],
             cwd=destination,
             env=clean_env,
@@ -808,7 +808,7 @@ fi
         git_status += " tracking " + remote_branch
     if secondary_remote:
         git_status += " at " + settings["effective-repository"]
-    return module, "OK", "Checked out revision %s (%s)" % (output.strip(), git_status)
+    return module, "OK", f"Checked out revision {output.strip()} ({git_status})"
 
 
 def update_sources(options):

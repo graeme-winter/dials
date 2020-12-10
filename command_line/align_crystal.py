@@ -1,15 +1,15 @@
 # LIBTBX_PRE_DISPATCHER_INCLUDE_SH export PHENIX_GUI_ENVIRONMENT=1
 
-from __future__ import absolute_import, division, print_function
 
 import collections
 import copy
 import json
 import sys
 
+from dx2.model import MultiAxisGoniometer
+
 import iotbx.phil
 from cctbx import sgtbx
-from dx2.model import MultiAxisGoniometer
 from rstbx.cftbx.coordinate_frame_helpers import align_reference_frame
 from scitbx import matrix
 
@@ -108,7 +108,7 @@ def axis_type(vector, space_group):
     return axis_t
 
 
-class align_crystal(object):
+class align_crystal:
 
     vector_names = {a.elems: "a", b.elems: "b", c.elems: "c"}
 

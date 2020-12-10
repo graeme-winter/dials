@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import logging
 import random
 import sys
@@ -82,9 +80,7 @@ output {
 
 class cosym(Subject):
     def __init__(self, experiments, reflections, params=None):
-        super(cosym, self).__init__(
-            events=["run_cosym", "performed_unit_cell_clustering"]
-        )
+        super().__init__(events=["run_cosym", "performed_unit_cell_clustering"])
         if params is None:
             params = phil_scope.extract()
         self.params = params
