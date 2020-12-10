@@ -15,11 +15,11 @@
 #include <algorithm>
 #include <scitbx/math/r3_rotation.h>
 #include <scitbx/constants.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
-#include <dxtbx/model/scan_helpers.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
+#include <dx2/model/scan_helpers.h>
 #include <dials/array_family/reflection_table.h>
 #include <dials/algorithms/spot_prediction/index_generator.h>
 #include <dials/algorithms/spot_prediction/reeke_index_generator.h>
@@ -32,13 +32,13 @@ namespace dials { namespace algorithms {
 
   using boost::shared_ptr;
   using dials::model::Ray;
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::is_angle_in_range;
-  using dxtbx::model::Panel;
-  using dxtbx::model::plane_ray_intersection;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::is_angle_in_range;
+  using dx2::model::Panel;
+  using dx2::model::plane_ray_intersection;
+  using dx2::model::Scan;
   using scitbx::constants::pi;
   using scitbx::constants::pi_180;
   using scitbx::constants::two_pi;
@@ -303,7 +303,7 @@ namespace dials { namespace algorithms {
               break;
             }
           }
-        } catch (dxtbx::error) {
+        } catch (dx2::error) {
           // do nothing
         }
       }
@@ -330,7 +330,7 @@ namespace dials { namespace algorithms {
             p.xyz_mm.push_back(vec3<double>(mm[0], mm[1], frames[j][0]));
             p.xyz_px.push_back(vec3<double>(px[0], px[1], frames[j][1]));
           }
-        } catch (dxtbx::error) {
+        } catch (dx2::error) {
           // do nothing
         }
       }
@@ -355,7 +355,7 @@ namespace dials { namespace algorithms {
             p.xyz_mm.push_back(vec3<double>(mm[0], mm[1], rays[i].angle));
             p.xyz_px.push_back(vec3<double>(px[0], px[1], frame));
             p.flags.push_back(af::Predicted);
-          } catch (dxtbx::error) {
+          } catch (dx2::error) {
             p.xyz_mm.push_back(vec3<double>(0, 0, rays[i].angle));
             p.xyz_px.push_back(vec3<double>(0, 0, frame));
             p.flags.push_back(0);
@@ -843,7 +843,7 @@ namespace dials { namespace algorithms {
         p.panel.push_back(panel);
         p.flags.push_back(af::Predicted);
 
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         // do nothing
       }
     }
@@ -890,7 +890,7 @@ namespace dials { namespace algorithms {
             p.xyz_mm.push_back(vec3<double>(mm[0], mm[1], rays[i].angle));
             p.xyz_px.push_back(vec3<double>(px[0], px[1], frame));
             p.flags.push_back(af::Predicted);
-          } catch (dxtbx::error) {
+          } catch (dx2::error) {
             p.xyz_mm.push_back(vec3<double>(0, 0, rays[i].angle));
             p.xyz_px.push_back(vec3<double>(0, 0, frame));
             p.flags.push_back(0);
@@ -1139,7 +1139,7 @@ namespace dials { namespace algorithms {
         p.flags.push_back(af::Predicted);
         p.delpsi.push_back(delpsi);
 
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         // do nothing
       }
     }

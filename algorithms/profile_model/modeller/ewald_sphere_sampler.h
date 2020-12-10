@@ -13,10 +13,10 @@
 
 #include <cmath>
 #include <scitbx/array_family/tiny_types.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
 #include <dials/algorithms/profile_model/modeller/sampler_interface.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <scitbx/constants.h>
@@ -24,11 +24,11 @@
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Panel;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Panel;
+  using dx2::model::Scan;
   using scitbx::vec2;
   using scitbx::vec3;
   using scitbx::af::double3;

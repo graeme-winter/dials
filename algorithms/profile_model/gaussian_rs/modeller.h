@@ -28,10 +28,10 @@ namespace dials { namespace algorithms {
   using dials::algorithms::profile_model::gaussian_rs::transform::TransformReverse;
   using dials::algorithms::profile_model::gaussian_rs::transform::TransformSpec;
   using dials::model::Shoebox;
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Scan;
 
   /**
    * A base class to initialize the sampler

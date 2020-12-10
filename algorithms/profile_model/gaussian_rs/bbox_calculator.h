@@ -17,10 +17,10 @@
 #include <scitbx/vec3.h>
 #include <scitbx/array_family/tiny_types.h>
 #include <scitbx/array_family/ref_reductions.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/algorithms/profile_model/gaussian_rs/coordinate_system.h>
 
@@ -30,10 +30,10 @@ namespace dials {
       namespace gaussian_rs {
 
   // Use a load of stuff from other namespaces
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Scan;
   using scitbx::vec2;
   using scitbx::vec3;
   using scitbx::af::double2;

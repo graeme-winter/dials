@@ -14,17 +14,17 @@
 
 #include <vector>
 #include <scitbx/vec3.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/error.h>
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
   using scitbx::vec3;
 
   /**

@@ -14,10 +14,10 @@
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
 #include <scitbx/array_family/tiny_types.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
 #include <dials/algorithms/polygon/spatial_interpolation.h>
 #include <dials/algorithms/profile_model/gaussian_rs/coordinate_system.h>
 #include <dials/algorithms/profile_model/gaussian_rs/transform/map_frames.h>
@@ -41,10 +41,10 @@ namespace dials {
     using dials::model::Foreground;
     using dials::model::Shoebox;
     using dials::model::Valid;
-    using dxtbx::model::BeamBase;
-    using dxtbx::model::Detector;
-    using dxtbx::model::Goniometer;
-    using dxtbx::model::Scan;
+    using dx2::model::BeamBase;
+    using dx2::model::Detector;
+    using dx2::model::Goniometer;
+    using dx2::model::Scan;
     using scitbx::vec2;
     using scitbx::vec3;
     using scitbx::af::double3;

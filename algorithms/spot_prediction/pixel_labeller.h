@@ -12,8 +12,8 @@
 #ifndef DIALS_ALGORITHMS_SPOT_PREDICTION_PIXEL_LABELLER_H
 #define DIALS_ALGORITHMS_SPOT_PREDICTION_PIXEL_LABELLER_H
 
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
 #include <scitbx/mat3.h>
@@ -23,9 +23,9 @@
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Panel;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Panel;
   using scitbx::mat3;
   using scitbx::vec2;
   using scitbx::vec3;

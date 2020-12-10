@@ -12,15 +12,15 @@
 #define DIALS_UTIL_MASKING_H
 
 #include <algorithm>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/panel.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/panel.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/error.h>
 
 namespace dials { namespace util {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Panel;
+  using dx2::model::BeamBase;
+  using dx2::model::Panel;
   using scitbx::vec2;
   using scitbx::vec3;
 
@@ -43,7 +43,7 @@ namespace dials { namespace util {
           vec2<double> px(i + 0.5, j + 0.5);
           try {
             resolution_(j, i) = panel.get_resolution_at_pixel(s0, px);
-          } catch (dxtbx::error) {
+          } catch (dx2::error) {
             // Known failure: resolution at beam center is undefined
             resolution_(j, i) = 0.0;
           }

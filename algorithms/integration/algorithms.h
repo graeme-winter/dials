@@ -18,10 +18,10 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/scan.h>
-#include <dxtbx/model/crystal.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/scan.h>
+#include <dx2/model/crystal.h>
 
 #include <dials/model/data/mask_code.h>
 #include <dials/model/data/shoebox.h>
@@ -42,10 +42,10 @@
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::Beam;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Scan;
+  using dx2::model::Beam;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Scan;
 
   using dials::algorithms::GLMBackgroundCreator;
   using dials::algorithms::GModelBackgroundCreator;

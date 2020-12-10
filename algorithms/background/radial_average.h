@@ -11,15 +11,15 @@
 #ifndef DIALS_ALGORITHMS_BACKGROUND_RADIAL_AVERAGE_H
 #define DIALS_ALGORITHMS_BACKGROUND_RADIAL_AVERAGE_H
 
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
 #include <dials/error.h>
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Panel;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Panel;
 
   class RadialAverage {
   public:

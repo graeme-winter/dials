@@ -21,11 +21,11 @@
 #include <scitbx/array_family/versa_matrix.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/algorithms/spot_prediction/rotation_angles.h>
-#include <dxtbx/model/scan_helpers.h>
+#include <dx2/model/scan_helpers.h>
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::is_angle_in_range;
+  using dx2::model::is_angle_in_range;
 
   // helper function for sampling_volume_map
   bool are_angles_in_range(af::ref<vec2<double> > const& angle_ranges,

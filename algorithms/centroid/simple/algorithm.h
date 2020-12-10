@@ -12,8 +12,8 @@
 #define DIALS_ALGORITHMS_CENTROID_SIMPLE_ALGORITHM_H
 
 #include <boost/optional.hpp>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/scan.h>
 #include <dials/model/data/image_volume.h>
 #include <dials/array_family/reflection_table.h>
 
@@ -23,9 +23,9 @@ namespace dials { namespace algorithms {
   using dials::model::ImageVolume;
   using dials::model::MultiPanelImageVolume;
   using dials::model::Shoebox;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Panel;
-  using dxtbx::model::Scan;
+  using dx2::model::Detector;
+  using dx2::model::Panel;
+  using dx2::model::Scan;
 
   /**
    * Compute the centroid from a single reflection

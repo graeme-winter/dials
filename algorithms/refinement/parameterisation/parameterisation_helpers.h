@@ -5,8 +5,8 @@
 #include <scitbx/vec3.h>
 #include <scitbx/mat3.h>
 #include <cctbx/miller.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/panel.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/panel.h>
 #include <dials/error.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 //#include <dials/algorithms/refinement/rtmats.h>
@@ -14,7 +14,7 @@
 
 namespace dials { namespace refinement {
 
-  using dxtbx::model::Detector;
+  using dx2::model::Detector;
   using scitbx::mat3;
   using scitbx::vec3;
   using scitbx::math::r3_rotation::axis_and_angle_as_matrix;

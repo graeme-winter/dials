@@ -16,15 +16,15 @@
 #include <scitbx/vec3.h>
 #include <scitbx/mat3.h>
 #include <cctbx/miller.h>
-#include <dxtbx/model/scan_helpers.h>
+#include <dx2/model/scan_helpers.h>
 #include <dials/model/data/ray.h>
 #include "rotation_angles.h"
 
 namespace dials { namespace algorithms {
 
   // Using lots of stuff from other namespaces
-  using dxtbx::model::is_angle_in_range;
-  using dxtbx::model::mod_2pi;
+  using dx2::model::is_angle_in_range;
+  using dx2::model::mod_2pi;
   using model::Ray;
   using scitbx::mat3;
   using scitbx::rad_as_deg;

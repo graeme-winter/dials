@@ -13,15 +13,15 @@
 
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
-#include <dxtbx/model/detector.h>
+#include <dx2/model/detector.h>
 #include <dials/array_family/reflection_table.h>
 #include <dials/error.h>
 
 namespace dials { namespace algorithms {
 
   // Using lots of stuff from other namespaces
-  using dxtbx::model::Detector;
-  using dxtbx::model::Panel;
+  using dx2::model::Detector;
+  using dx2::model::Panel;
   using scitbx::vec2;
   using scitbx::vec3;
 
@@ -111,7 +111,7 @@ namespace dials { namespace algorithms {
         xyzcalmm[i][1] = coord.second[1];
         xyzcalmm[i][2] = phi[i];
         panel[i] = coord.first;
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         success[i] = false;
       }
     }
@@ -137,7 +137,7 @@ namespace dials { namespace algorithms {
         xyzcalmm[i][1] = coord[1];
         xyzcalmm[i][2] = phi[i];
         panel[i] = panel_number;
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         success[i] = false;
       }
     }
@@ -164,7 +164,7 @@ namespace dials { namespace algorithms {
         xyzcalmm[i][1] = coord[1];
         xyzcalmm[i][2] = phi[i];
         panel[i] = panel_numbers[i];
-      } catch (dxtbx::error) {
+      } catch (dx2::error) {
         success[i] = false;
       }
     }

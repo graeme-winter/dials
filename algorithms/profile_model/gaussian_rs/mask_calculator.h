@@ -14,10 +14,10 @@
 #include <boost/shared_ptr.hpp>
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/scan.h>
 #include <dials/model/data/shoebox.h>
 #include <dials/model/data/image_volume.h>
 #include <dials/algorithms/profile_model/gaussian_rs/coordinate_system.h>
@@ -36,11 +36,11 @@ namespace dials {
   using dials::model::Overlapped;
   using dials::model::Shoebox;
   using dials::model::Valid;
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Panel;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Panel;
+  using dx2::model::Scan;
   using scitbx::vec2;
   using scitbx::vec3;
   using scitbx::af::int6;

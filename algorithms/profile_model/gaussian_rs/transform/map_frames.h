@@ -18,10 +18,10 @@
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
 #include <scitbx/array_family/tiny_types.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/error.h>
 

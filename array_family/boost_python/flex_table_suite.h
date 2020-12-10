@@ -29,8 +29,8 @@
 #include <dials/array_family/flex_table.h>
 #include <dials/array_family/scitbx_shared_and_versa.h>
 #include <dials/error.h>
-#include <dxtbx/model/experiment.h>
-#include <dxtbx/model/experiment_list.h>
+#include <dx2/model/experiment.h>
+#include <dx2/model/experiment_list.h>
 
 namespace dials { namespace af { namespace boost_python { namespace flex_table_suite {
 
@@ -710,7 +710,7 @@ namespace dials { namespace af { namespace boost_python { namespace flex_table_s
   }
 
   template <typename T>
-  T select_using_experiment(T &self, dxtbx::model::Experiment expt) {
+  T select_using_experiment(T &self, dx2::model::Experiment expt) {
     typedef typename T::experiment_map_type::const_iterator const_iterator;
 
     std::string identifier = expt.get_identifier();
@@ -742,9 +742,9 @@ namespace dials { namespace af { namespace boost_python { namespace flex_table_s
   }
 
   template <typename T>
-  T select_using_experiments(T &self, dxtbx::model::ExperimentList expts) {
+  T select_using_experiments(T &self, dx2::model::ExperimentList expts) {
     typedef typename T::experiment_map_type::const_iterator const_iterator;
-    typedef dxtbx::model::ExperimentList::shared_type::const_iterator
+    typedef dx2::model::ExperimentList::shared_type::const_iterator
       expt_const_iterator;
     T result;
     for (expt_const_iterator expt = expts.begin(); expt != expts.end(); ++expt) {

@@ -14,7 +14,7 @@
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
 #include <scitbx/array_family/tiny_types.h>
-#include <dxtbx/model/panel.h>
+#include <dx2/model/panel.h>
 #include <dials/error.h>
 
 namespace dials {
@@ -22,8 +22,8 @@ namespace dials {
     namespace profile_model {
       namespace gaussian_rs {
 
-  using dxtbx::model::plane_ray_intersection;
-  using dxtbx::model::plane_world_coordinate;
+  using dx2::model::plane_ray_intersection;
+  using dx2::model::plane_world_coordinate;
   using scitbx::mat3;
   using scitbx::vec2;
   using scitbx::vec3;

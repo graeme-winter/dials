@@ -13,16 +13,16 @@
 
 #include <scitbx/vec2.h>
 #include <scitbx/vec3.h>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/scan.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/scan.h>
 #include <dials/error.h>
 
 namespace dials { namespace model {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::Detector;
+  using dx2::model::Scan;
   using scitbx::vec2;
   using scitbx::vec3;
 

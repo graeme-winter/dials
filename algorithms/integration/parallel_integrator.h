@@ -13,11 +13,11 @@
 #define DIALS_ALGORITHMS_INTEGRATION_PARALLEL_INTEGRATOR_H
 
 #include <boost/ptr_container/ptr_vector.hpp>
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/scan.h>
-#include <dxtbx/model/crystal.h>
-#include <dxtbx/imageset.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/scan.h>
+#include <dx2/model/crystal.h>
+#include <dx2/imageset.h>
 #include <dials/array_family/reflection_table.h>
 #include <dials/array_family/reflection.h>
 #include <dials/error.h>
@@ -32,15 +32,15 @@
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::Beam;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Panel;
-  using dxtbx::model::Scan;
+  using dx2::model::Beam;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Panel;
+  using dx2::model::Scan;
 
-  using dxtbx::ImageSequence;
-  using dxtbx::format::Image;
-  using dxtbx::format::ImageTile;
+  using dx2::ImageSequence;
+  using dx2::format::Image;
+  using dx2::format::ImageTile;
 
   using dials::model::AdjacencyList;
   using dials::model::Shoebox;

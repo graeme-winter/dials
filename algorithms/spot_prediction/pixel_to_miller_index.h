@@ -11,20 +11,20 @@
 #ifndef DIALS_ALGORITHMS_SPOT_PREDICTION_PIXEL_TO_MILLER_INDEX_H
 #define DIALS_ALGORITHMS_SPOT_PREDICTION_PIXEL_TO_MILLER_INDEX_H
 
-#include <dxtbx/model/beam.h>
-#include <dxtbx/model/detector.h>
-#include <dxtbx/model/goniometer.h>
-#include <dxtbx/model/scan.h>
-#include <dxtbx/model/crystal.h>
+#include <dx2/model/beam.h>
+#include <dx2/model/detector.h>
+#include <dx2/model/goniometer.h>
+#include <dx2/model/scan.h>
+#include <dx2/model/crystal.h>
 #include <dials/error.h>
 
 namespace dials { namespace algorithms {
 
-  using dxtbx::model::BeamBase;
-  using dxtbx::model::CrystalBase;
-  using dxtbx::model::Detector;
-  using dxtbx::model::Goniometer;
-  using dxtbx::model::Scan;
+  using dx2::model::BeamBase;
+  using dx2::model::CrystalBase;
+  using dx2::model::Detector;
+  using dx2::model::Goniometer;
+  using dx2::model::Scan;
   using scitbx::mat3;
   using scitbx::vec2;
   using scitbx::vec3;
