@@ -104,16 +104,19 @@ working_phil = phil_scope.fetch(sources=[phil_overrides])
 
 
 def _index_experiments(experiments, reflections, params, known_crystal_models=None):
-    idxr = indexer.Indexer.from_parameters(
-        reflections,
-        experiments,
-        known_crystal_models=known_crystal_models,
-        params=params,
-    )
-    idxr.index()
-    idx_refl = copy.deepcopy(idxr.refined_reflections)
-    idx_refl.extend(idxr.unindexed_reflections)
-    return idxr.refined_experiments, idx_refl
+    try:
+        idxr = indexer.Indexer.from_parameters(
+            reflections,
+            experiments,
+            known_crystal_models=known_crystal_models,
+            params=params,
+        )
+        idxr.index()
+        idx_refl = copy.deepcopy(idxr.refined_reflections)
+        idx_refl.extend(idxr.unindexed_reflections)
+        return idxr.refined_experiments, idx_refl
+    except Exception:
+        return None, reflections
 
 
 def index(experiments, reflections, params):
@@ -156,6 +159,7 @@ def index(experiments, reflections, params):
 
     if params.indexing.image_range:
         reflections = slice_reflections(reflections, params.indexing.image_range)
+    reflections["origin_id"] = copy.copy(reflections["imageset_id"])
 
     if len(experiments) == 1 or params.indexing.joint_indexing:
         indexed_experiments, indexed_reflections = _index_experiments(
@@ -192,6 +196,7 @@ def index(experiments, reflections, params):
                     print(e)
                 else:
                     if idx_expts is None:
+                        indexed_reflections.extend(indx_refl)
                         continue
                     # Update the experiment ids by incrementing by the number of indexed
                     # experiments already in the list
@@ -203,7 +208,21 @@ def index(experiments, reflections, params):
             tables_list = renumber_table_id_columns(tables_list)
             for table in tables_list:
                 indexed_reflections.extend(table)
-    return indexed_experiments, indexed_reflections
+
+    # reassign unindexed reflections back to their origin experiment, newly
+    # indexed reflections to the correct _new_ experiment, extend the list of
+    # experiments do not only return the new ones
+    sel = indexed_reflections["id"] != -1
+
+    indexed_reflections["id"].set_selected(
+        sel, indexed_reflections["id"] + len(experiments)
+    )
+    indexed_reflections["id"].set_selected(~sel, indexed_reflections["origin_id"])
+    experiments.extend(indexed_experiments)
+
+    del indexed_reflections["origin_id"]
+    
+    return experiments, indexed_reflections
 
 
 @show_mail_handle_errors()
