@@ -375,6 +375,8 @@ class ReflectionManager:
         # modules to allow for nlogn subselection of values used in refinement.
         l_id = reflections["id"]
         id0 = l_id[0]
+
+        # GWTODO check if this is causing nasty time delays
         for id_x in l_id[1:]:
             if id0 <= id_x:
                 id0 = id_x

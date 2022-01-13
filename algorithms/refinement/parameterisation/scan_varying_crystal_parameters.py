@@ -176,6 +176,7 @@ class ScanVaryingCrystalUnitCellParameterisation(
         # calculate new B and derivatives
         self._B_at_t, dB_dval = self._compose_core(vals)
 
+        # GWTODO check if this is causing nasty time delays
         # calculate derivatives of state wrt underlying parameters
         self._dstate_dp = [
             [b * e for e in a.as_dense_vector()] for a, b in zip(dvals_dp, dB_dval)
