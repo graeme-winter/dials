@@ -4,6 +4,8 @@ import dask_image.ndfilters
 import napari
 import numpy
 
+from dxtbx import flumpy
+
 from dials.util.options import ArgumentParser, flatten_experiments
 
 
@@ -16,6 +18,7 @@ def run(args=None):
         read_experiments_from_images=True,
     )
 
+    stack = False
     params, options = parser.parse_args(args, show_diff_phil=True)
     experiments = flatten_experiments(params.input.experiments)
 
@@ -24,7 +27,7 @@ def run(args=None):
     images = experiments[0].imageset
 
     def _reader(n):
-        image = images.get_raw_data(n)[0].as_numpy_array()
+        image = flumpy.to_numpy(images.get_raw_data(n)[0])
         ny, nx = image.shape
         return numpy.reshape(image, (1, ny, nx))
 
@@ -43,10 +46,11 @@ def run(args=None):
 
     assert lazy_array.shape[0] == nn
 
-    stack_array = dask_image.ndfilters.uniform_filter(lazy_array, size=(10, 1, 1))
+    if stack:
+        _ = dask_image.ndfilters.uniform_filter(lazy_array, size=(10, 1, 1))
 
     _ = napari.view_image(
-        stack_array, title="DIALS image viewer", contrast_limits=[0, 10]
+        lazy_array, title="DIALS image viewer", contrast_limits=[0, 10]
     )
 
     napari.run()
