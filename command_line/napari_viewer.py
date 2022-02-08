@@ -1,5 +1,6 @@
 import dask
 import dask.array
+import dask_image.ndfilters
 import napari
 import numpy
 
@@ -42,9 +43,12 @@ def run(args=None):
 
     assert lazy_array.shape[0] == nn
 
+    stack_array = dask_image.ndfilters.uniform_filter(lazy_array, size=(10, 1, 1))
+
     _ = napari.view_image(
-        lazy_array, title="DIALS image viewer", contrast_limits=[0, 10]
+        stack_array, title="DIALS image viewer", contrast_limits=[0, 10]
     )
+
     napari.run()
 
 
