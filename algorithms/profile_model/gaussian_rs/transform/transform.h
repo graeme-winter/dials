@@ -284,6 +284,9 @@ namespace dials {
       void call(const Panel &panel,
                 const af::const_ref<FloatType, af::c_grid<3> > &image,
                 const af::const_ref<bool, af::c_grid<3> > &mask) {
+        // #onionminer this is where we _actually_ compute the transformed profile
+        // for a given reflection
+
         // Check the input
         DIALS_ASSERT(image.accessor().all_eq(shoebox_size_));
         DIALS_ASSERT(image.accessor().all_eq(mask.accessor()));
