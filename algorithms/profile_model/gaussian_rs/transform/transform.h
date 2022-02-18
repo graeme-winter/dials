@@ -238,6 +238,8 @@ namespace dials {
                 const CoordinateSystem &cs,
                 int6 bbox,
                 std::size_t panel) {
+        // #onionminer this is where we _actually_ compute the transformed profile
+
         // Initialise some stuff
         x0_ = bbox[0];
         y0_ = bbox[2];

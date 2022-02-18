@@ -194,6 +194,8 @@ namespace dials { namespace algorithms {
       // Save the max iter
       maxiter_ = maxiter;
 
+      // #onionminer this is where we _actually_ fit the profile
+
       // Check the input
       DIALS_ASSERT(d.size() == b.size());
       DIALS_ASSERT(d.size() == m.size());
