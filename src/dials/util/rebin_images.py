@@ -128,3 +128,34 @@ def main_sum(in_images, out_image):
 
     print(f"Writing {out_image}")
     write_image(out_image, sum_image, in_image_headers[0], nn=len(in_images))
+
+
+def main_sub(in_images, out_image):
+    for i in in_images:
+        assert os.path.exists(i)
+    assert len(in_images) == 2
+    assert not os.path.exists(out_image)
+
+    in_image_data = []
+    in_image_headers = []
+
+    for i in in_images:
+        print(f"Reading {i}")
+        pixel, header = read_image(i)
+        in_image_data.append(pixel)
+        in_image_headers.append(header)
+
+    sum_image = diff(*in_image_data)
+
+    print(f"Writing {out_image}")
+    write_image(out_image, sum_image, in_image_headers[0], nn=len(in_images))
+
+
+def diff(a, b):
+    """Compute an image corresponding to b - a, with the pixels which are
+    initially negative in either masked to -0x80000000 i.e. 1<<31 as a
+    symbol"""
+    image = b - a
+    negative = a.as_1d() < 0
+    image.as_1d().set_selected(negative, -0x80000000)
+    return image
